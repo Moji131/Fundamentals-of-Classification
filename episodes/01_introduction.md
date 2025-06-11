@@ -1,4 +1,9 @@
-# Introduction to Classification
+---
+title: "Introduction to Classification"
+teaching: 10
+exercises: 0
+---
+
 
 ## What is Classification?
 
