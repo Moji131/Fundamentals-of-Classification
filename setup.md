@@ -37,7 +37,17 @@ Once found, the page will update with a button that you can click to Open Jupyte
 
 Here is a screenshot of a JupyterLab landing page that should be similar to the one that opens in your web browser after starting the JupyterLab server on either macOS or Windows.
 
-
-
 ![](fig/0_jupyterlab_landing_page.png)
+
+
+When you have a Jupyter server running
+Run the following code in a Jupyter notebook cell:
+
+```
+!mkdir -p /scratch/cd82/$USER/notebooks
+!cp /scratch/cd82/class_wb/* /scratch/cd82/$USER/notebooks/
+!ls /scratch/cd82/$USER/notebooks/
+```
+
+And then use the Jupyter file browser to navigate to the directory: 	/scratch/cd82/$USER/notebooks/ (where $USER is your NCI username)
 
