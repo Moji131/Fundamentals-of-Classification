@@ -1,81 +1,209 @@
-Setup and Troubleshooting
-ARE JupyterLab Setup for Workshop
+Image Classification with Convolutional Neural Networks: Summary and Setup MathJax.Hub.Config({ config: \["MMLorHTML.js"\], jax: \["input/TeX","input/MathML","output/HTML-CSS","output/NativeMML", "output/PreviewHTML"\], extensions: \["tex2jax.js","mml2jax.js","MathMenu.js","MathZoom.js", "fast-preview.js", "AssistiveMML.js", "a11y/accessibility-menu.js"\], TeX: { extensions: \["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"\] }, tex2jax: { inlineMath: \[\['\\\\(', '\\\\)'\]\], displayMath: \[ \['$$','$$'\], \['\\\\\[', '\\\\\]'\] \], processEscapes: true } }); 
 
-NCI account page
-Use this link to set up your NCI account
-https://my.nci.org.au/ 
-NCI Australian Research Environment
-Make sure you use your NCI ID (eg, ab1234) and not your email address for the username.
-https://are.nci.org.au/ 
-NCI project folder
+[Skip to main content](#main-content)
+
+![Carpentries Incubator](assets/images/incubator-logo.svg) [Pre-Alpha](https://docs.carpentries.org/resources/curriculum/lesson-life-cycle.html) This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught.
+
+*   *   Light
+    *   Dark
+    *   Auto
+
+Learner View
+
+*   Instructor View
+
+* * *
+
+Menu
+
+![Carpentries Incubator](assets/images/incubator-logo-sm.svg)
+
+Image Classification with Convolutional Neural Networks
+
+*   Image Classification with Convolutional Neural Networks
+*   [Key Points](key-points.html)
+*   [Glossary](reference.html#glossary)
+*   [Learner Profiles](profiles.html)
+*   More
+    *   [Reference](reference.html)
+
+[Search the All In One page](aio.html)
+
+Image Classification with Convolutional Neural Networks
+
+%
+
+*   Toggle Theme
+    *   Light
+    *   Dark
+    *   Auto
+
+Learner View
+------------
+
+[Instructor View](instructor/index.html)
+
+* * *
+
+EPISODES
+--------
+
+Current Chapter Summary and Setup
+
+*   [NCI Account Setup](#nci-account-setup)
+*   [NCI Australian Research Environment (ARE)](#nci-australian-research-environment-are)
+*   [Getting the Data](#getting-the-data)
+
+[1\. Running and Quitting JupyterLab on NCI](00-run-quit.html)
+
+[2\. Introduction to Deep Learning](01-introduction.html)
+
+[3\. Introduction to Image Data](02-image-data.html)
+
+[4\. Build a Convolutional Neural Network](03-build-cnn.html)
+
+[5\. Compile and Train (Fit) a Convolutional Neural Network](04-fit-cnn.html)
+
+[6\. Evaluate a Convolutional Neural Network and Make Predictions (Classifications)](05-evaluate-predict-cnn.html)
+
+[7\. Share a Convolutional Neural Network and Next Steps](06-share-cnn-next-steps.html)
+
+* * *
+
+RESOURCES
+---------
+
+*   [Key Points](key-points.html)
+*   [Glossary](reference.html#glossary)
+*   [Learner Profiles](profiles.html)
+*   [Reference](reference.html)
+
+* * *
+
+[See all in one page](aio.html)
+
+* * *
+
+[Next](00-run-quit.html)
+
+[Next: Running and Quitting...](00-run-quit.html)
+
+* * *
+
+Summary and Setup
+=================
+
+This is a new lesson built with [The Carpentries Workbench](https://carpentries.github.io/sandpaper-docs).
+
+This lesson is designed for Software Carpentry users who have completed [Plotting and Programming in Python](https://swcarpentry.github.io/python-novice-gapminder/) and want to jump straight into image classification. We recognize this jump is quite large and have done our best to provide the content and code to perform these types of analyses.
+
+The NCI-QCIF Training Partnership Project version of this lesson uses python virtual environments to run Jupyter Notebooks on [NCI’s Gadi supercomputer](https://nci.org.au/news-events/events/introduction-gadi-4).
+
+It uses the [TensorFlow](https://www.tensorflow.org/) software library in a **CPU** only environment.
+
+### Callout
+
+Please note this lesson is designed to work with CPU only environments. This was an intentional decision to avoid the difficulties in setting up GPU environments. If you are an advanced user and choose to set up a GPU environment, you are on your own. We will not be able to troubleshoot any issues with GPU set up on the day of the workshop.
+
+NCI Account Setup[](#nci-account-setup)
+---------------------------------------
+
+* * *
+
+Sign up for an [NCI account](https://my.nci.org.au) if you don’t already have one.
+
+Select **Projects and groups** from the left hand side menu and then select the **Find project or group** tab. Search for **cd82**, the NCI-QCIF Training Partnership Project, and ask to join.
+
+![NCI Find a project or group page](fig/0_my_nci_project_cd82.png)
+
+NCI Australian Research Environment (ARE)[](#nci-australian-research-environment-are)
+-------------------------------------------------------------------------------------
+
+* * *
+
+Connect to [NCI Australian Research Environment](https://are.nci.org.au).
+
+Be sure you use your NCI ID (eg, ab1234) for the username and not your email address.
+
+Under **Featured Apps**, find and click the **JupterLab: Start a JupyterLab instance** option.
+
+![NCI ARE JupyterLab](fig/0_nci_are_mainpage.png)
+
+To Launch a JuptyerLab session, set these resource requirements:
+
+Resource
+
+Value
+
+Walltime (hours)
+
+5
+
+Queue
+
+normal
+
+Compute Size
+
+small
+
+Project
+
+cd82
+
+Storage
+
 scratch/cd82
-ARE JupyterLab session request details
-Walltime (hours)  - 5
-Queue - normal
-Compute size - small
-Project - cd82
-Storage - scratch/cd82
-Advanced options
-Modules - python3/3.9.2
-Python or Conda virtual environment base - /scratch/cd82/venv_class
 
-When you have a Jupyter server running
-Run the following code in a Jupyter notebook cell:
+**Advanced Options…**
 
-!mkdir -p /scratch/cd82/$USER/notebooks/data
-!cp /scratch/cd82/class_wb/* /scratch/cd82/$USER/notebooks/
-!cp /scratch/cd82/class_data/*.JPG /scratch/cd82/$USER/notebooks/data
-!ls /scratch/cd82/$USER/notebooks/
+Modules
 
+python3/3.9.2
 
-And then use the Jupyter file browser to navigate to the directory: 	/scratch/cd82/$USER/notebooks/ (where $USER is your NCI username)
-Launch Session Troubleshooting
+Python or Conda virtual environment base
 
-T: My NCI login is not working
+/scratch/cd82/venv\_icwcnn
 
-Solution: Ensure that you are entering the correct username. It should consist of 6 letters and digits, and not your email address.
+Then click the Launch button.
 
-T: Bad Request: Requested resource does not exist.
+This will take you to your interactive session page you will see that that your JupyterLab session is Queued while ARE is searching for a compute node that will satisfy your requirements.
 
-Solution: Reopen the https://are.nci.org.au/ page in a new tab.
+Once found, the page will update with a button that you can click to **Open JupyterLab**.
 
-T: qsub: Error: You are not a member of project cd82. You must be a member of a project to submit a job under that project.
+Here is a screenshot of a JupyterLab landing page that should be similar to the one that opens in your web browser after starting the JupyterLab server on either macOS or Windows.
 
-Solution: Make you have requested access to Project cd82 via https://my.nci.org.au/ Note this may take up to 30 min to filter through the system, after you have confirmed your email address. (Check your spam and quarantine folders if you have not received an email from NCI to verify your email address.)
+![JupyterLab landing page](fig/0_jupyterlab_landing_page.png)
 
-T: qsub: Project "cd82" does not have sufficient CPU time allocation to run this job.
+Getting the Data[](#getting-the-data)
+-------------------------------------
 
-Solution: Logout and login again or wait up to 30 min before you launch the job. (This error is often seen when the system is still setting up your access to the project.)
+* * *
 
-T: qsub: Error: You have not requested a project to charge for this job.
+This lesson uses the CIFAR-10 image dataset that comes prepackaged with Keras. There are no additional steps needed to access the data.
 
-Solution: Project cd82 was not specified in resource requirement specification.
+[Next](00-run-quit.html)
 
-T: Failed to submit session with the following error: If this job failed to submit because of an invalid job name please ask your administrator to configure OnDemand to set the environment variable OOD_JOB_NAME_ILLEGAL_CHARS. The JupyterLab session data for this session can be accessed under the staged root directory.
+[Next: Running and Quitting...](00-run-quit.html)
 
-Solution: Refresh the browser or switch to a new browser.
-Additional Resources
-Upcoming QCIF-NCI Workshops
-Introduction to the Unix Shell (Jun 2025) - NCI 16 June
-Version Control with Git (Jun 2025) - NCI 26 June
-Decision Trees and Ensemble Methods in Machine Learning (Jul 2025) - NCI 16 July - SOLD OUT
-Clustering and Unsupervised Methods in Machine Learning (Jul 2025) - NCI 29 July - SOLD OUT
-Introduction to High Performance Computing (HPC) (Aug 2025) - NCI - 14 August
-Introduction to Image Classification (Aug 2025) - NCI - 19 August
-NCI Resources
-NCI Australia - https://nci.org.au/
-NCI's Public Documentation Home - https://opus.nci.org.au/
-Gadi User Guide - https://opus.nci.org.au/spaces/Help/pages/236880325/Gadi+User+Guide
-ARE User Guide - https://opus.nci.org.au/spaces/Help/pages/162431120/ARE+User+Guide
-JupyterLab on ARE - https://opus.nci.org.au/spaces/Help/pages/163250554/3.+JupyterLab+App
-NCI Help Desk - https://nci.org.au/users/nci-helpdesk
-2025 Training and Education Events Calendar - https://opus.nci.org.au/spaces/Help/pages/48497461/NCI+Training+and+Educational+Events
-We particularly recommend Introduction to Unix and Introduction to HPC for working confidently with Gadi, regardless of the programming language you use.
-JupyterLab Resources
-The Jupyter Project - https://jupyter.org/
-JupyterLab User Guide - https://jupyterlab.readthedocs.io/en/stable/user/index.html
+* * *
 
+This lesson is subject to the [Code of Conduct](CODE_OF_CONDUCT.html)
 
+[Edit on GitHub](https://github.com/erinmgraham/icwithcnn/edit/main/index.md) | [Contributing](https://github.com/erinmgraham/icwithcnn/blob/main/CONTRIBUTING.md) | [Source](https://github.com/erinmgraham/icwithcnn/)
+
+[Cite](https://github.com/erinmgraham/icwithcnn/blob/main/CITATION) | [Contact](/cdn-cgi/l/email-protection#2247504b4c0c4550434a434f624841570c4746570c4357) | [About](https://carpentries.org/about/)
+
+Materials licensed under [CC-BY 4.0](LICENSE.html) by the authors
+
+Template licensed under [CC-BY 4.0](https://creativecommons.org/licenses/by-sa/4.0/) by [The Carpentries](https://carpentries.org/)
+
+Built with [sandpaper (0.16.12)](https://github.com/carpentries/sandpaper/tree/0.16.12), [pegboard (0.7.9)](https://github.com/carpentries/pegboard/tree/0.7.9), and [varnish (1.0.6)](https://github.com/carpentries/varnish/tree/1.0.6)
+
+[  
+Back To Top](#top)
+
+{ "@context": "https://schema.org", "@type": "LearningResource", "@id": "https://erinmgraham.github.io/icwithcnn/index.html", "inLanguage": "en", "dct:conformsTo": "https://bioschemas.org/profiles/LearningResource/1.0-RELEASE", "description": "A Carpentries Lesson teaching foundational data and coding skills to researchers worldwide", "keywords": "software, data, lesson, The Carpentries", "name": "Image Classification with Convolutional Neural Networks", "creativeWorkStatus": "active", "url": "https://erinmgraham.github.io/icwithcnn/index.html", "identifier": "https://erinmgraham.github.io/icwithcnn/index.html", "dateCreated": "2023-05-03", "dateModified": "2025-06-10", "datePublished": "2025-06-10" } feather.replace();
 
 
 
