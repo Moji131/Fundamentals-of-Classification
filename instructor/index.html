@@ -331,72 +331,188 @@ any links that you are not going to use.
  --></tbody></table><p>
       The actual schedule may vary slightly depending on the topics and exercises chosen by the instructor.
       </p>
-      </section><section id="setup"><p>Setup and Troubleshooting ARE JupyterLab Setup for Workshop</p>
-<p>NCI account page Use this link to set up your NCI account <a href="https://my.nci.org.au/" class="external-link uri">https://my.nci.org.au/</a> NCI
-Australian Research Environment Make sure you use your NCI ID (eg,
-ab1234) and not your email address for the username. <a href="https://are.nci.org.au/" class="external-link uri">https://are.nci.org.au/</a>
-NCI project folder scratch/cd82 ARE JupyterLab session request details
-Walltime (hours) - 5 Queue - normal Compute size - small Project - cd82
-Storage - scratch/cd82 Advanced options Modules - python3/3.9.2 Python
-or Conda virtual environment base - /scratch/cd82/venv_class</p>
-<p>When you have a Jupyter server running Run the following code in a
-Jupyter notebook cell:</p>
-<p>!mkdir -p /scratch/cd82/<span class="math inline">\(USER/notebooks/data
-!cp /scratch/cd82/class_wb/* /scratch/cd82/\)</span>USER/notebooks/ !cp
-/scratch/cd82/class_data/*.JPG /scratch/cd82/<span class="math inline">\(USER/notebooks/data
-!ls /scratch/cd82/\)</span>USER/notebooks/</p>
-<p>And then use the Jupyter file browser to navigate to the directory:
-/scratch/cd82/$USER/notebooks/ (where $USER is your NCI username) Launch
-Session Troubleshooting</p>
-<p>T: My NCI login is not working</p>
-<p>Solution: Ensure that you are entering the correct username. It
-should consist of 6 letters and digits, and not your email address.</p>
-<p>T: Bad Request: Requested resource does not exist.</p>
-<p>Solution: Reopen the <a href="https://are.nci.org.au/" class="external-link uri">https://are.nci.org.au/</a> page in a new tab.</p>
-<p>T: qsub: Error: You are not a member of project cd82. You must be a
-member of a project to submit a job under that project.</p>
-<p>Solution: Make you have requested access to Project cd82 via <a href="https://my.nci.org.au/" class="external-link uri">https://my.nci.org.au/</a>
-Note this may take up to 30 min to filter through the system, after you
-have confirmed your email address. (Check your spam and quarantine
-folders if you have not received an email from NCI to verify your email
-address.)</p>
-<p>T: qsub: Project “cd82” does not have sufficient CPU time allocation
-to run this job.</p>
-<p>Solution: Logout and login again or wait up to 30 min before you
-launch the job. (This error is often seen when the system is still
-setting up your access to the project.)</p>
-<p>T: qsub: Error: You have not requested a project to charge for this
-job.</p>
-<p>Solution: Project cd82 was not specified in resource requirement
-specification.</p>
-<p>T: Failed to submit session with the following error: If this job
-failed to submit because of an invalid job name please ask your
-administrator to configure OnDemand to set the environment variable
-OOD_JOB_NAME_ILLEGAL_CHARS. The JupyterLab session data for this session
-can be accessed under the staged root directory.</p>
-<p>Solution: Refresh the browser or switch to a new browser. Additional
-Resources Upcoming QCIF-NCI Workshops Introduction to the Unix Shell
-(Jun 2025) - NCI 16 June Version Control with Git (Jun 2025) - NCI 26
-June Decision Trees and Ensemble Methods in Machine Learning (Jul 2025)
-- NCI 16 July - SOLD OUT Clustering and Unsupervised Methods in Machine
-Learning (Jul 2025) - NCI 29 July - SOLD OUT Introduction to High
-Performance Computing (HPC) (Aug 2025) - NCI - 14 August Introduction to
-Image Classification (Aug 2025) - NCI - 19 August NCI Resources NCI
-Australia - <a href="https://nci.org.au/" class="external-link uri">https://nci.org.au/</a> NCI’s Public Documentation Home - <a href="https://opus.nci.org.au/" class="external-link uri">https://opus.nci.org.au/</a>
-Gadi User Guide - <a href="https://opus.nci.org.au/spaces/Help/pages/236880325/Gadi+User+Guide" class="external-link uri">https://opus.nci.org.au/spaces/Help/pages/236880325/Gadi+User+Guide</a>
-ARE User Guide - <a href="https://opus.nci.org.au/spaces/Help/pages/162431120/ARE+User+Guide" class="external-link uri">https://opus.nci.org.au/spaces/Help/pages/162431120/ARE+User+Guide</a>
-JupyterLab on ARE - <a href="https://opus.nci.org.au/spaces/Help/pages/163250554/3.+JupyterLab+App" class="external-link uri">https://opus.nci.org.au/spaces/Help/pages/163250554/3.+JupyterLab+App</a>
-NCI Help Desk - <a href="https://nci.org.au/users/nci-helpdesk" class="external-link uri">https://nci.org.au/users/nci-helpdesk</a> 2025 Training and
-Education Events Calendar - <a href="https://opus.nci.org.au/spaces/Help/pages/48497461/NCI+Training+and+Educational+Events" class="external-link uri">https://opus.nci.org.au/spaces/Help/pages/48497461/NCI+Training+and+Educational+Events</a>
-We particularly recommend Introduction to Unix and Introduction to HPC
-for working confidently with Gadi, regardless of the programming
-language you use. JupyterLab Resources The Jupyter Project - <a href="https://jupyter.org/" class="external-link uri">https://jupyter.org/</a>
-JupyterLab User Guide - <a href="https://jupyterlab.readthedocs.io/en/stable/user/index.html" class="external-link uri">https://jupyterlab.readthedocs.io/en/stable/user/index.html</a></p>
+      </section><section id="setup"><p>Image Classification with Convolutional Neural Networks: Summary and
+Setup MathJax.Hub.Config({ config: <span class="math display">\["MMLorHTML.js"\]</span>, jax: <span class="math display">\["input/TeX","input/MathML","output/HTML-CSS","output/NativeMML",
+"output/PreviewHTML"\]</span>, extensions: <span class="math display">\["tex2jax.js","mml2jax.js","MathMenu.js","MathZoom.js",
+"fast-preview.js", "AssistiveMML.js",
+"a11y/accessibility-menu.js"\]</span>, TeX: { extensions:
+<span class="math display">\["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"\]</span>
+}, tex2jax: { inlineMath: <span class="math display">\[\['\\\\(', '\\\\)'\]</span>],
+displayMath: <span class="math display">\[
+\['$$','$$'\]</span>, <span class="math display">\['\\\\\[', '\\\\\]</span>’] ],
+processEscapes: true } });</p>
+<p><a href="#main-content">Skip to main content</a></p>
+<p><img src="../assets/images/incubator-logo.svg" alt="Carpentries Incubator" class="figure"><a href="https://docs.carpentries.org/resources/curriculum/lesson-life-cycle.html" class="external-link">Pre-Alpha</a>
+This lesson is in the pre-alpha phase, which means that it is in early
+development, but has not yet been taught.</p>
+<ul><li><ul><li>Light</li>
+<li>Dark</li>
+<li>Auto</li>
+</ul></li>
+</ul><p>Learner View</p>
+<ul><li>Instructor View</li>
+</ul><hr><p>Menu</p>
+<figure><img src="../assets/images/incubator-logo-sm.svg" alt="Carpentries Incubator" class="figure mx-auto d-block"><div class="figcaption">Carpentries Incubator</div>
+</figure><p>Image Classification with Convolutional Neural Networks</p>
+<ul><li>Image Classification with Convolutional Neural Networks</li>
+<li><a href="key-points.html">Key Points</a></li>
+<li><a href="reference.html#glossary">Glossary</a></li>
+<li><a href="profiles.html">Learner Profiles</a></li>
+<li>More
+<ul><li><a href="reference.html">Reference</a></li>
+</ul></li>
+</ul><p><a href="aio.html">Search the All In One page</a></p>
+<p>Image Classification with Convolutional Neural Networks</p>
+<p>%</p>
+<ul><li>Toggle Theme
+<ul><li>Light</li>
+<li>Dark</li>
+<li>Auto</li>
+</ul></li>
+</ul><section><h2 class="section-heading" id="learner-view">Learner View<a class="anchor" aria-label="anchor" href="#learner-view"></a></h2>
+<hr class="half-width"><p><a href="../instructor/index.html">Instructor View</a></p>
+<hr></section><section><h2 class="section-heading" id="episodes">EPISODES<a class="anchor" aria-label="anchor" href="#episodes"></a></h2>
+<hr class="half-width"><p>Current Chapter Summary and Setup</p>
+<ul><li><a href="#nci-account-setup">NCI Account Setup</a></li>
+<li><a href="#nci-australian-research-environment-are">NCI Australian
+Research Environment (ARE)</a></li>
+<li><a href="#getting-the-data">Getting the Data</a></li>
+</ul><p><a href="00-run-quit.html">1. Running and Quitting JupyterLab on
+NCI</a></p>
+<p><a href="01-introduction.html">2. Introduction to Deep
+Learning</a></p>
+<p><a href="02-image-data.html">3. Introduction to Image Data</a></p>
+<p><a href="03-build-cnn.html">4. Build a Convolutional Neural
+Network</a></p>
+<p><a href="04-fit-cnn.html">5. Compile and Train (Fit) a Convolutional
+Neural Network</a></p>
+<p><a href="05-evaluate-predict-cnn.html">6. Evaluate a Convolutional
+Neural Network and Make Predictions (Classifications)</a></p>
+<p><a href="06-share-cnn-next-steps.html">7. Share a Convolutional
+Neural Network and Next Steps</a></p>
+<hr></section><section><h2 class="section-heading" id="resources">RESOURCES<a class="anchor" aria-label="anchor" href="#resources"></a></h2>
+<hr class="half-width"><ul><li><a href="key-points.html">Key Points</a></li>
+<li><a href="reference.html#glossary">Glossary</a></li>
+<li><a href="profiles.html">Learner Profiles</a></li>
+<li><a href="reference.html">Reference</a></li>
+</ul><hr><p><a href="aio.html">See all in one page</a></p>
+<hr><p><a href="00-run-quit.html">Next</a></p>
+<p><a href="00-run-quit.html">Next: Running and Quitting…</a></p>
+<hr></section><div class="section level1">
+<h1 id="summary-and-setup">Summary and Setup<a class="anchor" aria-label="anchor" href="#summary-and-setup"></a></h1>
+<p>This is a new lesson built with <a href="https://carpentries.github.io/sandpaper-docs" class="external-link">The Carpentries
+Workbench</a>.</p>
+<p>This lesson is designed for Software Carpentry users who have
+completed <a href="https://swcarpentry.github.io/python-novice-gapminder/" class="external-link">Plotting
+and Programming in Python</a> and want to jump straight into image
+classification. We recognize this jump is quite large and have done our
+best to provide the content and code to perform these types of
+analyses.</p>
+<p>The NCI-QCIF Training Partnership Project version of this lesson uses
+python virtual environments to run Jupyter Notebooks on <a href="https://nci.org.au/news-events/events/introduction-gadi-4" class="external-link">NCI’s
+Gadi supercomputer</a>.</p>
+<p>It uses the <a href="https://www.tensorflow.org/" class="external-link">TensorFlow</a>
+software library in a <strong>CPU</strong> only environment.</p>
+<div class="section level3">
+<h3 id="callout">Callout<a class="anchor" aria-label="anchor" href="#callout"></a></h3>
+<p>Please note this lesson is designed to work with CPU only
+environments. This was an intentional decision to avoid the difficulties
+in setting up GPU environments. If you are an advanced user and choose
+to set up a GPU environment, you are on your own. We will not be able to
+troubleshoot any issues with GPU set up on the day of the workshop.</p>
+</div>
+<div class="section level2">
+<h2 id="nci-account-setup">NCI Account Setup<a href="#nci-account-setup"></a>
+<a class="anchor" aria-label="anchor" href="#nci-account-setup"></a></h2>
+<hr><p>Sign up for an <a href="https://my.nci.org.au" class="external-link">NCI account</a> if you
+don’t already have one.</p>
+<p>Select <strong>Projects and groups</strong> from the left hand side
+menu and then select the <strong>Find project or group</strong> tab.
+Search for <strong>cd82</strong>, the NCI-QCIF Training Partnership
+Project, and ask to join.</p>
+<figure><img src="../fig/0_my_nci_project_cd82.png" alt="NCI Find a project or group page" class="figure mx-auto d-block"><div class="figcaption">NCI Find a project or group page</div>
+</figure></div>
+<div class="section level2">
+<h2 id="nci-australian-research-environment-are">NCI Australian Research Environment (ARE)<a href="#nci-australian-research-environment-are"></a>
+<a class="anchor" aria-label="anchor" href="#nci-australian-research-environment-are"></a></h2>
+<hr><p>Connect to <a href="https://are.nci.org.au" class="external-link">NCI Australian Research
+Environment</a>.</p>
+<p>Be sure you use your NCI ID (eg, ab1234) for the username and not
+your email address.</p>
+<p>Under <strong>Featured Apps</strong>, find and click the
+<strong>JupterLab: Start a JupyterLab instance</strong> option.</p>
+<figure><img src="../fig/0_nci_are_mainpage.png" alt="NCI ARE JupyterLab" class="figure mx-auto d-block"><div class="figcaption">NCI ARE JupyterLab</div>
+</figure><p>To Launch a JuptyerLab session, set these resource requirements:</p>
+<p>Resource</p>
+<p>Value</p>
+<p>Walltime (hours)</p>
+<p>5</p>
+<p>Queue</p>
+<p>normal</p>
+<p>Compute Size</p>
+<p>small</p>
+<p>Project</p>
+<p>cd82</p>
+<p>Storage</p>
+<p>scratch/cd82</p>
+<p><strong>Advanced Options…</strong></p>
+<p>Modules</p>
+<p>python3/3.9.2</p>
+<p>Python or Conda virtual environment base</p>
+<p>/scratch/cd82/venv_icwcnn</p>
+<p>Then click the Launch button.</p>
+<p>This will take you to your interactive session page you will see that
+that your JupyterLab session is Queued while ARE is searching for a
+compute node that will satisfy your requirements.</p>
+<p>Once found, the page will update with a button that you can click to
+<strong>Open JupyterLab</strong>.</p>
+<p>Here is a screenshot of a JupyterLab landing page that should be
+similar to the one that opens in your web browser after starting the
+JupyterLab server on either macOS or Windows.</p>
+<figure><img src="../fig/0_jupyterlab_landing_page.png" alt="JupyterLab landing page" class="figure mx-auto d-block"><div class="figcaption">JupyterLab landing page</div>
+</figure></div>
+<div class="section level2">
+<h2 id="getting-the-data">Getting the Data<a href="#getting-the-data"></a>
+<a class="anchor" aria-label="anchor" href="#getting-the-data"></a></h2>
+<hr><p>This lesson uses the CIFAR-10 image dataset that comes prepackaged
+with Keras. There are no additional steps needed to access the data.</p>
+<p><a href="00-run-quit.html">Next</a></p>
+<p><a href="00-run-quit.html">Next: Running and Quitting…</a></p>
+<hr><p>This lesson is subject to the <a href="CODE_OF_CONDUCT.html">Code of
+Conduct</a></p>
+<p><a href="https://github.com/erinmgraham/icwithcnn/edit/main/index.md" class="external-link">Edit
+on GitHub</a> | <a href="https://github.com/erinmgraham/icwithcnn/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a>
+| <a href="https://github.com/erinmgraham/icwithcnn/" class="external-link">Source</a></p>
+<p><a href="https://github.com/erinmgraham/icwithcnn/blob/main/CITATION" class="external-link">Cite</a>
+| <a href="../cdn-cgi/l/email-protection#2247504b4c0c4550434a434f624841570c4746570c4357">Contact</a>
+| <a href="https://carpentries.org/about/" class="external-link">About</a></p>
+<p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the
+authors</p>
+<p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by
+<a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
+<p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.12" class="external-link">sandpaper
+(0.16.12)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.9" class="external-link">pegboard
+(0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.6" class="external-link">varnish
+(1.0.6)</a></p>
+<p><a href="#top"><br>
+Back To Top</a></p>
+<p>{ “<span class="citation">@context</span>”: “<a href="https://schema.org" class="external-link uri">https://schema.org</a>”, “<span class="citation">@type</span>”: “LearningResource”, “<span class="citation">@id</span>”: “<a href="https://erinmgraham.github.io/icwithcnn/index.html" class="external-link uri">https://erinmgraham.github.io/icwithcnn/index.html</a>”,
+“inLanguage”: “en”, “dct:conformsTo”: “<a href="https://bioschemas.org/profiles/LearningResource/1.0-RELEASE" class="external-link uri">https://bioschemas.org/profiles/LearningResource/1.0-RELEASE</a>”,
+“description”: “A Carpentries Lesson teaching foundational data and
+coding skills to researchers worldwide”, “keywords”: “software, data,
+lesson, The Carpentries”, “name”: “Image Classification with
+Convolutional Neural Networks”, “creativeWorkStatus”: “active”, “url”:
+“<a href="https://erinmgraham.github.io/icwithcnn/index.html" class="external-link uri">https://erinmgraham.github.io/icwithcnn/index.html</a>”,
+“identifier”: “<a href="https://erinmgraham.github.io/icwithcnn/index.html" class="external-link uri">https://erinmgraham.github.io/icwithcnn/index.html</a>”,
+“dateCreated”: “2023-05-03”, “dateModified”: “2025-06-10”,
+“datePublished”: “2025-06-10” } feather.replace();</p>
 <!-- Collect your link references at the bottom of your document -->
 <!--
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
  -->
+</div>
+</div>
 
 
       </section></main><nav class="bottom-pagination mx-md-4" aria-label="Next Chapter"><!-- content for small screens --><div class="d-block d-sm-block d-md-none">
