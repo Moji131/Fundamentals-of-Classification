@@ -235,7 +235,67 @@
 <div class="accordion accordion-flush" id="accordionFlush2">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading2">
-        <a href="introduction.html">1. Using Markdown</a>
+        <a href="01-introduction.html">1. Introduction to Deep Learning</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush3">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading3">
+        <a href="02-image-data.html">2. Introduction to Image Data</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush4">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading4">
+        <a href="03-build-cnn.html">3. Build a Convolutional Neural Network</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush5">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading5">
+        <a href="04-fit-cnn.html">4. Compile and Train (Fit) a Convolutional Neural Network</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush6">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading6">
+        <a href="05-evaluate-predict-cnn.html">5. Evaluate a Convolutional Neural Network and Make Predictions (Classifications)</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush7">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading7">
+        <a href="06-share-cnn-next-steps.html">6. Share a Convolutional Neural Network and Next Steps</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -299,17 +359,88 @@
     <main id="main-content" class="main-content"><div class="container lesson-content">
         
         
-<section id="introduction"><h2 class="section-heading"><a href="introduction.html">Using Markdown</a></h2>
+<section id="01-introduction"><h2 class="section-heading"><a href="01-introduction.html">Introduction to Deep Learning</a></h2>
 <hr class="half-width">
 <ul>
-<li>Use <code>.md</code> files for episodes when you want static
-content</li>
-<li>Use <code>.Rmd</code> files for episodes when you need to generate
-output</li>
-<li>Run <code>sandpaper::check_lesson()</code> to identify any issues
-with your lesson</li>
-<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson
-locally</li>
+<li>Machine learning is the process where computers learn to recognise
+patterns of data.</li>
+<li>Deep learning is a subset of machine learning, which is a subset of
+artificial intelligence.</li>
+<li>Convolutional neural networks are well suited for image
+classification.</li>
+<li>To use Deep Learning effectively we follow a workflow of: defining
+the problem, identifying inputs and outputs, preparing data, choosing
+the type of network, training the model, tuning hyperparameters, and
+measuring performance before we can classify data.</li>
+</ul></section><section id="02-image-data"><h2 class="section-heading"><a href="02-image-data.html">Introduction to Image Data</a></h2>
+<hr class="half-width">
+<ul>
+<li>Image datasets can be found online or created uniquely for your
+research question.</li>
+<li>Images consist of pixels arranged in a particular order.</li>
+<li>Image data is usually preprocessed before use in a CNN for
+efficiency, consistency, and robustness.</li>
+<li>Input data generally consists of three sets: a training set used to
+fit model parameters; a validation set used to evaluate the model fit on
+training data; a test set used to evaluate the final model
+performance.</li>
+</ul></section><section id="03-build-cnn"><h2 class="section-heading"><a href="03-build-cnn.html">Build a Convolutional Neural Network</a></h2>
+<hr class="half-width">
+<ul>
+<li>Artificial neural networks (ANN) are a machine learning technique
+based on a model inspired by groups of neurons in the brain.</li>
+<li>Convolution neural networks (CNN) are a type of ANN designed for
+image classification and object detection.</li>
+<li>The number of filters corresponds to the number of distinct features
+the layer is learning to recognise whereas the kernel size determines
+the level of features being captured.</li>
+<li>A CNN can consist of many types of layers including convolutional,
+pooling, flatten, and dense (fully connected) layers</li>
+<li>Convolutional layers are responsible for learning features from the
+input data.</li>
+<li>Pooling layers are often used to reduce the spatial dimensions of
+the data.</li>
+<li>The flatten layer is used to convert the multi-dimensional output of
+the convolutional and pooling layers into a flat vector.</li>
+<li>Dense layers are responsible for combining features learned by the
+previous layers to perform the final classification.</li>
+</ul></section><section id="04-fit-cnn"><h2 class="section-heading"><a href="04-fit-cnn.html">Compile and Train (Fit) a Convolutional Neural Network</a></h2>
+<hr class="half-width">
+<ul>
+<li>Use Model.compile() to compile a CNN.</li>
+<li>The choice of optimizer often depends on experimentation and
+empirical evaluation.</li>
+<li>The choice of loss function will depend on your data and aim.</li>
+<li>Use Model.fit() to make a train (fit) a CNN.</li>
+<li>Training/validation loss and accuracy can be used to evaluate a
+model during training.</li>
+<li>Dropout is one way regularization technique to prevent
+overfitting.</li>
+</ul></section><section id="05-evaluate-predict-cnn"><h2 class="section-heading"><a href="05-evaluate-predict-cnn.html">Evaluate a Convolutional Neural Network and Make Predictions (Classifications)</a></h2>
+<hr class="half-width">
+<ul>
+<li>Model accuracy must be measured on a test dataset with images your
+model has not seen before.</li>
+<li>Use Model.predict() to make a prediction with your model.</li>
+<li>There are many hyperparameters to choose from to improve model
+performance.</li>
+<li>Fitting separate models with different hyperparameters and comparing
+their performance is a common and good practice in deep learning.</li>
+</ul></section><section id="06-share-cnn-next-steps"><h2 class="section-heading"><a href="06-share-cnn-next-steps.html">Share a Convolutional Neural Network and Next Steps</a></h2>
+<hr class="half-width">
+<ul>
+<li>To use Deep Learning effectively, go through a workflow of: defining
+the problem, identifying inputs and outputs, preparing data, choosing
+the type of network, choosing a loss function, training the model,
+tuning hyperparameters, and measuring performance.</li>
+<li>Use Model.save() and share your model with others.</li>
+<li>Keras is a Deep Learning library that is easier to use than many of
+the alternatives such as TensorFlow and PyTorch.</li>
+<li>Graphical Processing Units are useful, though not essential, for
+deep learning tasks.</li>
+<li>CNNs work well for a variety of tasks, especially those involving
+grid-like data with spatial relationships, but not for time series or
+variable sized input data.</li>
 </ul></section>
 </div>
     </main>
