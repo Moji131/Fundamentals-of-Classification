@@ -27,7 +27,7 @@ To Launch a JuptyerLab session, set these resource requirements:
 | Storage                                  | scratch/cd82              |
 | Advanced Options…                        |                           |
 | Modules                                  | python3/3.9.2             |
-| Python or Conda virtual environment base | /scratch/cd82/venv_icwcnn |
+| Python or Conda virtual environment base | /scratch/cd82/venv_class |
 
 Then click the Launch button.
 
@@ -40,8 +40,8 @@ Here is a screenshot of a JupyterLab landing page that should be similar to the 
 ![](fig/0_jupyterlab_landing_page.png)
 
 
-When you have a Jupyter server running
-Run the following code in a Jupyter notebook cell:
+When you have a Jupyter server running make new Jupyter notebook by clicking on the "Notebook" icon and
+run the following code in a cell:
 
 ```
 !mkdir -p /scratch/cd82/$USER/notebooks
@@ -49,5 +49,7 @@ Run the following code in a Jupyter notebook cell:
 !ls /scratch/cd82/$USER/notebooks/
 ```
 
-And then use the Jupyter file browser to navigate to the directory: 	/scratch/cd82/$USER/notebooks/ (where $USER is your NCI username)
+And then use the Jupyter file browser to navigate to the directory: 
+
+/scratch/cd82/$USER/notebooks/ (where $USER is your NCI username)
 
