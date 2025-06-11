@@ -15,4 +15,4 @@ Select  **Projects and groups**  from the left hand side menu and then select th
 | Modules                                  | python3/3.9.2             |
 | Python or Conda virtual environment base | /scratch/cd82/venv_icwcnn |
 
-![enter image description here](fig/05_vary_dropout_rate.png)
+![main page image](fig/0_nci_are_mainpage.png)
