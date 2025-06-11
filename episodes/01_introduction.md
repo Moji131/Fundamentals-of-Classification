@@ -43,13 +43,7 @@ We will use the following Python libraries throughout the workshop:
 
 Ensure you have the following libraries installed:
 
-```bash
+```
 pip install numpy pandas scikit-learn matplotlib
+```
 
-
-
-<!-- Collect your link references at the bottom of your document -->
-
-[original source]: https://en.wikipedia.org/wiki/File:AI-ML-DL.svg
-[CIFAR-10]: https://www.cs.toronto.edu/~kriz/cifar.html
-[Set the working directory]: https://carpentries-incubator.github.io/intro-image-classification-cnn/#set-the-working-directory
