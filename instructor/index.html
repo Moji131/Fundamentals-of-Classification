@@ -330,10 +330,18 @@ Open JupyterLab.</p>
 <p>Here is a screenshot of a JupyterLab landing page that should be
 similar to the one that opens in your web browser after starting the
 JupyterLab server on either macOS or Windows.</p>
-<figure><img src="../fig/0_jupyterlab_landing_page.png" class="figure mx-auto d-block"></figure><!--
+<figure><img src="../fig/0_jupyterlab_landing_page.png" class="figure mx-auto d-block"></figure><p>When you have a Jupyter server running Run the following code in a
+Jupyter notebook cell:</p>
+<pre><code>!mkdir -p /scratch/cd82/$USER/notebooks
+!cp /scratch/cd82/class_wb/* /scratch/cd82/$USER/notebooks/
+!ls /scratch/cd82/$USER/notebooks/</code></pre>
+<p>And then use the Jupyter file browser to navigate to the directory:
+/scratch/cd82/$USER/notebooks/ (where $USER is your NCI username)</p>
+<!--
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
- --></section></section></main><nav class="bottom-pagination mx-md-4" aria-label="Next Chapter"><!-- content for small screens --><div class="d-block d-sm-block d-md-none">
+ -->
+</section></section></main><nav class="bottom-pagination mx-md-4" aria-label="Next Chapter"><!-- content for small screens --><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link float-end" href="../instructor/01_introduction.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
       </div>
       <!-- content for large screens -->
