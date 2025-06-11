@@ -16,6 +16,7 @@ Connect to  [NCI Australian Research Environment](https://are.nci.org.au/).
 Be sure you use your NCI ID (eg, ab1234) for the username and not your email address.
 
 Under  **Featured Apps**, find and click the  **JupterLab: Start a JupyterLab instance**  option.
+
 \ 
 ![](fig/0_nci_are_mainpage.png)
 \ 
@@ -42,12 +43,12 @@ This will take you to your interactive session page you will see that that your 
 Once found, the page will update with a button that you can click to Open JupyterLab.
 
 Here is a screenshot of a JupyterLab landing page that should be similar to the one that opens in your web browser after starting the JupyterLab server on either macOS or Windows.
+
 \ 
 ![](fig/0_jupyterlab_landing_page.png)
 \ 
 
-When you have a Jupyter server running make new Jupyter notebook by clicking on the "Notebook" icon and
-run the following code in a cell:
+When you have a Jupyter server running use JupyterLab file navigator to go the folder that has the same name as your username. Then make a new Jupyter notebook by clicking on the "Python 3" icon under "Notebook" section and run the following code in a cell:
 
 ```
 !mkdir -p /scratch/cd82/$USER/notebooks
