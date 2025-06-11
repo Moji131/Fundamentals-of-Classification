@@ -41,9 +41,13 @@ We will use the following Python libraries throughout the workshop:
 
 ## Setup Instructions
 
-Ensure you have the following libraries installed:
+Follow the instructions in "01_introduction.ipynb" notebook to ensure you have the following libraries installed:
 
-```
-pip install numpy pandas scikit-learn matplotlib
-```
+\ 
+
+- numpy
+- pandas
+- scikit-learn
+- matplotlib
+
 
