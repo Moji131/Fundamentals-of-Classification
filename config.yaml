@@ -66,7 +66,7 @@ contact: 'training@qcif.edu.au' # FIXME
 
 # Order of episodes in your lesson
 episodes: 
-- 01-introduction.md
+- 01_introduction.md
 
 
 # Information for Learners
