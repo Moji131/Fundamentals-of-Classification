@@ -29,5 +29,15 @@ To Launch a JuptyerLab session, set these resource requirements:
 | Modules                                  | python3/3.9.2             |
 | Python or Conda virtual environment base | /scratch/cd82/venv_icwcnn |
 
+Then click the Launch button.
 
+This will take you to your interactive session page you will see that that your JupyterLab session is Queued while ARE is searching for a compute node that will satisfy your requirements.
+
+Once found, the page will update with a button that you can click to Open JupyterLab.
+
+Here is a screenshot of a JupyterLab landing page that should be similar to the one that opens in your web browser after starting the JupyterLab server on either macOS or Windows.
+
+
+
+![](fig/0_jupyterlab_landing_page.png)
 
