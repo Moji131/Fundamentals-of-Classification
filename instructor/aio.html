@@ -235,7 +235,7 @@
 <div class="accordion accordion-flush" id="accordionFlush2">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading2">
-        <a href="01-introduction.html">1. Introduction to Deep Learning</a>
+        <a href="01_introduction.html">1. Introduction to Classification</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -299,77 +299,60 @@
     <main id="main-content" class="main-content"><div class="container lesson-content">
         
         
-<section id="aio-01-introduction"><p>Content from <a href="01-introduction.html">Introduction to Deep Learning</a></p>
+<section id="aio-01_introduction"><p>Content from <a href="01_introduction.html">Introduction to Classification</a></p>
 <hr>
 <p>Last updated on 2025-06-11 |
 
-        <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/01-introduction.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+        <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/01_introduction.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 10 minutes</p>
 <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
-<div class="overview card">
-<h2 class="card-header">Overview</h2>
-<div class="row g-0">
-<div class="col-md-4">
-<div class="card-body">
-<div class="inner">
-<h3 class="card-title">Questions</h3>
-<ul>
-<li>What is machine learning and what is it used for?</li>
-<li>What is deep learning?</li>
-<li>How do I use a neural network for image classification?</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="col-md-8">
-<div class="card-body">
-<div class="inner bordered">
-<h3 class="card-title">Objectives</h3>
-<ul>
-<li>Explain the difference between artificial intelligence, machine
-learning and deep learning.</li>
-<li>Understand the different types of computer vision tasks.</li>
-<li>Perform an image classification using a convolutional neural network
-(CNN).</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<section><h2 class="section-heading" id="deep-learning-machine-learning-and-artificial-intelligence">Deep Learning, Machine Learning and Artificial Intelligence<a class="anchor" aria-label="anchor" href="#deep-learning-machine-learning-and-artificial-intelligence"></a>
+<section><h2 class="section-heading" id="what-is-classification">What is Classification?<a class="anchor" aria-label="anchor" href="#what-is-classification"></a>
 </h2>
 <hr class="half-width">
-<p>Artificial Intelligence (AI) is the broad field that involves
-creating machines capable of performing tasks that typically require
-human intelligence. This includes everything from recognizing speech and
-images to making decisions and translating languages. Within AI, Machine
-Learning (ML) is a subset focused on the development of algorithms that
-allow computers to learn and improve from experience without being
-explicitly programmed.</p>
-<p>Deep Learning (DL), a further subset of ML, utilizes neural networks
-with many layers (hence “deep”) to model complex patterns in large
-amounts of data. This technique has led to significant advances in
-various fields, such as image and speech recognition.</p>
-<p>Since the 1950s, the idea of AI has captured the imagination of many,
-often depicted in science fiction as machines with human-like or even
-superior intelligence. While recent advancements in AI and ML have been
-remarkable, we are currently capable of achieving human-like
-intelligence only in specific areas. The goal of creating a
-general-purpose AI, one that can perform any intellectual task a human
-can, remains a long-term challenge.</p>
-<p>The image below illustrates some differences between artificial
-intelligence, machine learning and deep learning.</p>
-<figure><img src="../fig/01_AI_ML_DL_differences.png" alt="Three nested circles defining deep learning as a subset of machine learning which is a subset of artifical intelligence" class="figure mx-auto d-block"><div class="figcaption">The image above is by Tukijaaliwa, CC BY-SA 4.0,
-via Wikimedia Commons, <a href="https://en.wikipedia.org/wiki/File:AI-ML-DL.svg" class="external-link">original
-source</a>
-</div>
-</figure><!-- Collect your link references at the bottom of your document --><!--
+<p>Classification is a type of supervised learning where the goal is to
+predict categorical class labels. Given input data, a classification
+model attempts to assign it to one of several predefined classes.</p>
+<p>Some examples include: - Email spam detection (spam vs. not spam) -
+Disease diagnosis (positive vs. negative) - Image recognition (cat, dog,
+or other)</p>
+</section><section><h2 class="section-heading" id="workshop-goals">Workshop Goals<a class="anchor" aria-label="anchor" href="#workshop-goals"></a>
+</h2>
+<hr class="half-width">
+<p>By the end of this workshop, you will be able to: - Understand common
+classification algorithms - Apply them using Scikit-Learn, NumPy,
+Pandas, and Matplotlib - Evaluate and optimise models - Handle
+imbalanced datasets</p>
+</section><section><h2 class="section-heading" id="topics-covered">Topics Covered<a class="anchor" aria-label="anchor" href="#topics-covered"></a>
+</h2>
+<hr class="half-width">
+<ol style="list-style-type: decimal">
+<li>Logistic Regression</li>
+<li>Support Vector Machines (SVM)</li>
+<li>Neural Networks (MLPClassifier)</li>
+<li>Model Evaluation: Accuracy, Precision, Recall, F1-Score,
+ROC-AUC</li>
+<li>Dealing with Imbalanced Data</li>
+<li>Optimisation and Tuning</li>
+</ol></section><section><h2 class="section-heading" id="required-libraries">Required Libraries<a class="anchor" aria-label="anchor" href="#required-libraries"></a>
+</h2>
+<hr class="half-width">
+<p>We will use the following Python libraries throughout the workshop: -
+<code>NumPy</code> – numerical operations - <code>Pandas</code> – data
+manipulation - <code>Scikit-Learn</code> – machine learning models and
+tools - <code>Matplotlib</code> – data visualisation</p>
+</section><section><h2 class="section-heading" id="setup-instructions">Setup Instructions<a class="anchor" aria-label="anchor" href="#setup-instructions"></a>
+</h2>
+<hr class="half-width">
+<p>Ensure you have the following libraries installed:</p>
+<p>```bash pip install numpy pandas scikit-learn matplotlib</p>
+<!-- Collect your link references at the bottom of your document -->
+<!--
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
- --></section></section>
+ -->
+</section></section>
 </div>
     </main>
 </div>
