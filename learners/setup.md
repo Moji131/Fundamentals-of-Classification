@@ -3,7 +3,20 @@
 Sign up for an  [NCI account](https://my.nci.org.au/)  if you don’t already have one.
 
 Select  **Projects and groups**  from the left hand side menu and then select the  **Find project or group**  tab. Search for  **cd82**, the NCI-QCIF Training Partnership Project, and ask to join.
+![](fig/0_my_nci_project_cd82)
 
+## NCI Australian Research Environment (ARE)
+
+----------
+
+Connect to  [NCI Australian Research Environment](https://are.nci.org.au/).
+
+Be sure you use your NCI ID (eg, ab1234) for the username and not your email address.
+
+Under  **Featured Apps**, find and click the  **JupterLab: Start a JupyterLab instance**  option.
+![](fig/0_nci_are_mainpage.png)
+
+To Launch a JuptyerLab session, set these resource requirements:
 | Resource                                 | Value                     |
 | ---------------------------------------- | ------------------------- |
 | Walltime (hours)                         | 5                         |
@@ -15,4 +28,5 @@ Select  **Projects and groups**  from the left hand side menu and then select th
 | Modules                                  | python3/3.9.2             |
 | Python or Conda virtual environment base | /scratch/cd82/venv_icwcnn |
 
-![main page image](fig/0_nci_are_mainpage.png)
+
+
