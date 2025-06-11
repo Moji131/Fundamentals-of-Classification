@@ -67,7 +67,11 @@ contact: 'training@qcif.edu.au' # FIXME
 # Order of episodes in your lesson
 episodes: 
 - 01-introduction.md
-- 01-svm.md
+- 02-image-data.md
+- 03-build-cnn.md
+- 04-fit-cnn.md
+- 05-evaluate-predict-cnn.md
+- 06-share-cnn-next-steps.md
 
 # Information for Learners
 learners: 
