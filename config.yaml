@@ -67,6 +67,12 @@ contact: 'training@qcif.edu.au' # FIXME
 # Order of episodes in your lesson
 episodes: 
 - 01_introduction.md
+- 02_logistic_regression.md
+- 03_svm.md
+- 04_neural_network.md
+- 05_model_evaluation.md
+- 06_model_optimization.md
+
 
 
 # Information for Learners
