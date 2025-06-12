@@ -10,16 +10,31 @@
     <loc>https://carpentries.github.io/workbench-template-md/02-image-data.html</loc>
   </url>
   <url>
+    <loc>https://carpentries.github.io/workbench-template-md/02_logistic_regression.html</loc>
+  </url>
+  <url>
     <loc>https://carpentries.github.io/workbench-template-md/03-build-cnn.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries.github.io/workbench-template-md/03_svm.html</loc>
   </url>
   <url>
     <loc>https://carpentries.github.io/workbench-template-md/04-fit-cnn.html</loc>
   </url>
   <url>
+    <loc>https://carpentries.github.io/workbench-template-md/04_neural_network.html</loc>
+  </url>
+  <url>
     <loc>https://carpentries.github.io/workbench-template-md/05-evaluate-predict-cnn.html</loc>
   </url>
   <url>
+    <loc>https://carpentries.github.io/workbench-template-md/05_model_evaluation.html</loc>
+  </url>
+  <url>
     <loc>https://carpentries.github.io/workbench-template-md/06-share-cnn-next-steps.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries.github.io/workbench-template-md/06_model_optimization.html</loc>
   </url>
   <url>
     <loc>https://carpentries.github.io/workbench-template-md/404.html</loc>
@@ -49,16 +64,31 @@
     <loc>https://carpentries.github.io/workbench-template-md/instructor/02-image-data.html</loc>
   </url>
   <url>
+    <loc>https://carpentries.github.io/workbench-template-md/instructor/02_logistic_regression.html</loc>
+  </url>
+  <url>
     <loc>https://carpentries.github.io/workbench-template-md/instructor/03-build-cnn.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries.github.io/workbench-template-md/instructor/03_svm.html</loc>
   </url>
   <url>
     <loc>https://carpentries.github.io/workbench-template-md/instructor/04-fit-cnn.html</loc>
   </url>
   <url>
+    <loc>https://carpentries.github.io/workbench-template-md/instructor/04_neural_network.html</loc>
+  </url>
+  <url>
     <loc>https://carpentries.github.io/workbench-template-md/instructor/05-evaluate-predict-cnn.html</loc>
   </url>
   <url>
+    <loc>https://carpentries.github.io/workbench-template-md/instructor/05_model_evaluation.html</loc>
+  </url>
+  <url>
     <loc>https://carpentries.github.io/workbench-template-md/instructor/06-share-cnn-next-steps.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries.github.io/workbench-template-md/instructor/06_model_optimization.html</loc>
   </url>
   <url>
     <loc>https://carpentries.github.io/workbench-template-md/instructor/404.html</loc>
