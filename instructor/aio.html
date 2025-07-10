@@ -485,21 +485,6 @@ images.</p>
 <span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a>df[<span class="st">'target'</span>] <span class="op">=</span> y</span>
 <span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a>df.head()</span></code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb6">
-<h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">.dataframe</span> tbody tr th:only-of-type {</span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>    <span class="ex">vertical-align:</span> middle<span class="kw">;</span></span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="er">}</span></span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="ex">.dataframe</span> tbody tr th {</span>
-<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>    <span class="ex">vertical-align:</span> top<span class="kw">;</span></span>
-<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="er">}</span></span>
-<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a></span>
-<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a><span class="ex">.dataframe</span> thead th {</span>
-<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>    <span class="ex">text-align:</span> right<span class="kw">;</span></span>
-<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a><span class="er">}</span></span></code></pre>
-</div>
 <table style="width:100%;" class="table">
 <colgroup>
 <col width="0%">
@@ -673,25 +658,10 @@ images.</p>
 </tbody>
 </table>
 <p>5 rows × 31 columns</p>
-<div class="codewrapper sourceCode" id="cb7">
+<div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>df.describe()</span></code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb8">
-<h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">.dataframe</span> tbody tr th:only-of-type {</span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>    <span class="ex">vertical-align:</span> middle<span class="kw">;</span></span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="er">}</span></span>
-<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a><span class="ex">.dataframe</span> tbody tr th {</span>
-<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>    <span class="ex">vertical-align:</span> top<span class="kw">;</span></span>
-<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a><span class="er">}</span></span>
-<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a><span class="ex">.dataframe</span> thead th {</span>
-<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a>    <span class="ex">text-align:</span> right<span class="kw">;</span></span>
-<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a><span class="er">}</span></span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>df.describe()</span></code></pre>
 </div>
 <table style="width:100%;" class="table">
 <colgroup>
@@ -938,39 +908,22 @@ images.</p>
 </tbody>
 </table>
 <p>8 rows × 31 columns</p>
-<div class="codewrapper sourceCode" id="cb9">
+<div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>df.hist(bins<span class="op">=</span><span class="dv">20</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">10</span>))</span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>plt.tight_layout()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>df.hist(bins<span class="op">=</span><span class="dv">20</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">10</span>))</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>plt.tight_layout()</span></code></pre>
 </div>
 <figure><img src="../output_10_0.png" alt="png" class="figure mx-auto d-block"><div class="figcaption">png</div>
-</figure><div class="codewrapper sourceCode" id="cb10">
+</figure><div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="co"># Apply StandardScaler</span></span>
-<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
-<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>df_scaled <span class="op">=</span> pd.DataFrame(scaler.fit_transform(df), columns<span class="op">=</span>df.columns, index<span class="op">=</span>df.index)</span>
-<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>df_scaled.describe()</span>
-<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a></span>
-<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a></span></code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb11">
-<h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="ex">.dataframe</span> tbody tr th:only-of-type {</span>
-<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>    <span class="ex">vertical-align:</span> middle<span class="kw">;</span></span>
-<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="er">}</span></span>
-<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a><span class="ex">.dataframe</span> tbody tr th {</span>
-<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a>    <span class="ex">vertical-align:</span> top<span class="kw">;</span></span>
-<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a><span class="er">}</span></span>
-<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a></span>
-<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a><span class="ex">.dataframe</span> thead th {</span>
-<span id="cb11-10"><a href="#cb11-10" tabindex="-1"></a>    <span class="ex">text-align:</span> right<span class="kw">;</span></span>
-<span id="cb11-11"><a href="#cb11-11" tabindex="-1"></a><span class="er">}</span></span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="co"># Apply StandardScaler</span></span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>df_scaled <span class="op">=</span> pd.DataFrame(scaler.fit_transform(df), columns<span class="op">=</span>df.columns, index<span class="op">=</span>df.index)</span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>df_scaled.describe()</span></code></pre>
 </div>
 <table style="width:100%;" class="table">
 <colgroup>
