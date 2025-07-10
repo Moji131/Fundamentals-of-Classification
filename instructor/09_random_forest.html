@@ -108,11 +108,11 @@
   Fundamentals of Classification in Machine Learning
 </div>
 
-<aside class="col-md-12 lesson-progress"><div style="width: 79%" class="percentage">
-    79%
+<aside class="col-md-12 lesson-progress"><div style="width: 80%" class="percentage">
+    80%
   </div>
   <div class="progress incubator">
-    <div class="progress-bar incubator" role="progressbar" style="width: 79%" aria-valuenow="79" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar incubator" role="progressbar" style="width: 80%" aria-valuenow="80" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
     </div>
   </div>
 </aside><div class="container">
@@ -196,7 +196,7 @@
 <div class="accordion accordion-flush" id="accordionFlush2">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading2">
-        <a href="01_introduction.html">1. Introduction to Classification</a>
+        <a href="01_introduction.html">1. 01 Introduction</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -409,384 +409,41 @@ default kernel (RBF).</p>
 <span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>model <span class="op">=</span> RandomForestClassifier(random_state<span class="op">=</span><span class="dv">42</span>)</span>
 <span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>model.fit(X_train, y_train)</span></code></pre>
 </div>
-<p>#sk-container-id-1 { /* Definition of color scheme common for light
-and dark mode <em>/ –sklearn-color-text: #000;
-–sklearn-color-text-muted: #666; –sklearn-color-line: gray; /</em>
-Definition of color scheme for unfitted estimators <em>/
-–sklearn-color-unfitted-level-0: #fff5e6;
-–sklearn-color-unfitted-level-1: #f6e4d2;
-–sklearn-color-unfitted-level-2: #ffe0b3;
-–sklearn-color-unfitted-level-3: chocolate; /</em> Definition of color
-scheme for fitted estimators */ –sklearn-color-fitted-level-0: #f0f8ff;
-–sklearn-color-fitted-level-1: #d4ebff; –sklearn-color-fitted-level-2:
-#b3dbfd; –sklearn-color-fitted-level-3: cornflowerblue;</p>
-<p>/* Specific color for light theme */
-–sklearn-color-text-on-default-background: var(–sg-text-color,
-var(–theme-code-foreground, var(–jp-content-font-color1, black)));
-–sklearn-color-background: var(–sg-background-color,
-var(–theme-background, var(–jp-layout-color0, white)));
-–sklearn-color-border-box: var(–sg-text-color,
-var(–theme-code-foreground, var(–jp-content-font-color1, black)));
-–sklearn-color-icon: #696969;</p>
-<p><span class="citation">@media</span> (prefers-color-scheme: dark) {
-/* Redefinition of color scheme for dark theme */
-–sklearn-color-text-on-default-background: var(–sg-text-color,
-var(–theme-code-foreground, var(–jp-content-font-color1, white)));
-–sklearn-color-background: var(–sg-background-color,
-var(–theme-background, var(–jp-layout-color0, #111)));
-–sklearn-color-border-box: var(–sg-text-color,
-var(–theme-code-foreground, var(–jp-content-font-color1, white)));
-–sklearn-color-icon: #878787; } }</p>
-<p>#sk-container-id-1 { color: var(–sklearn-color-text); }</p>
-<p>#sk-container-id-1 pre { padding: 0; }</p>
-<p>#sk-container-id-1 input.sk-hidden–visually { border: 0; clip:
-rect(1px 1px 1px 1px); clip: rect(1px, 1px, 1px, 1px); height: 1px;
-margin: -1px; overflow: hidden; padding: 0; position: absolute; width:
-1px; }</p>
-<p>#sk-container-id-1 div.sk-dashed-wrapped { border: 1px dashed
-var(–sklearn-color-line); margin: 0 0.4em 0.5em 0.4em; box-sizing:
-border-box; padding-bottom: 0.4em; background-color:
-var(–sklearn-color-background); }</p>
-<p>#sk-container-id-1 div.sk-container { /* jupyter’s
-<code>normalize.less</code> sets
-<code>[hidden] { display: none; }</code> but bootstrap.min.css set
-<code>[hidden] { display: none !important; }</code> so we also need the
-<code>!important</code> here to be able to override the default hidden
-behavior on the sphinx rendered scikit-learn.org. See: <a href="https://github.com/scikit-learn/scikit-learn/issues/21755" class="external-link uri">https://github.com/scikit-learn/scikit-learn/issues/21755</a>
-*/ display: inline-block !important; position: relative; }</p>
-<p>#sk-container-id-1 div.sk-text-repr-fallback { display: none; }</p>
-<p>div.sk-parallel-item, div.sk-serial, div.sk-item { /* draw centered
-vertical line to link estimators */ background-image:
-linear-gradient(var(–sklearn-color-text-on-default-background),
-var(–sklearn-color-text-on-default-background)); background-size: 2px
-100%; background-repeat: no-repeat; background-position: center center;
-}</p>
-<p>/* Parallel-specific style estimator block */</p>
-<p>#sk-container-id-1 div.sk-parallel-item::after { content: ““; width:
-100%; border-bottom: 2px solid
-var(–sklearn-color-text-on-default-background); flex-grow: 1; }</p>
-<p>#sk-container-id-1 div.sk-parallel { display: flex; align-items:
-stretch; justify-content: center; background-color:
-var(–sklearn-color-background); position: relative; }</p>
-<p>#sk-container-id-1 div.sk-parallel-item { display: flex;
-flex-direction: column; }</p>
-<p>#sk-container-id-1 div.sk-parallel-item:first-child::after {
-align-self: flex-end; width: 50%; }</p>
-<p>#sk-container-id-1 div.sk-parallel-item:last-child::after {
-align-self: flex-start; width: 50%; }</p>
-<p>#sk-container-id-1 div.sk-parallel-item:only-child::after { width: 0;
-}</p>
-<p>/* Serial-specific style estimator block */</p>
-<p>#sk-container-id-1 div.sk-serial { display: flex; flex-direction:
-column; align-items: center; background-color:
-var(–sklearn-color-background); padding-right: 1em; padding-left: 1em;
-}</p>
-<p>/* Toggleable style: style used for
-estimator/Pipeline/ColumnTransformer box that is clickable and can be
-expanded/collapsed. - Pipeline and ColumnTransformer use this feature
-and define the default style - Estimators will overwrite some part of
-the style using the <code>sk-estimator</code> class */</p>
-<p>/* Pipeline and ColumnTransformer style (default) */</p>
-<p>#sk-container-id-1 div.sk-toggleable { /* Default theme specific
-background. It is overwritten whether we have a specific estimator or a
-Pipeline/ColumnTransformer */ background-color:
-var(–sklearn-color-background); }</p>
-<p>/* Toggleable label */ #sk-container-id-1 label.sk-toggleable__label
-{ cursor: pointer; display: flex; width: 100%; margin-bottom: 0;
-padding: 0.5em; box-sizing: border-box; text-align: center; align-items:
-start; justify-content: space-between; gap: 0.5em; }</p>
-<p>#sk-container-id-1 label.sk-toggleable__label .caption { font-size:
-0.6rem; font-weight: lighter; color: var(–sklearn-color-text-muted);
-}</p>
-<p>#sk-container-id-1 label.sk-toggleable__label-arrow:before { /* Arrow
-on the left of the label */ content: “▸”; float: left; margin-right:
-0.25em; color: var(–sklearn-color-icon); }</p>
-<p>#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {
-color: var(–sklearn-color-text); }</p>
-<p>/* Toggleable content - dropdown */</p>
-<p>#sk-container-id-1 div.sk-toggleable__content { display: none;
-text-align: left; /* unfitted */ background-color:
-var(–sklearn-color-unfitted-level-0); }</p>
-<p>#sk-container-id-1 div.sk-toggleable__content.fitted { /* fitted */
-background-color: var(–sklearn-color-fitted-level-0); }</p>
-<p>#sk-container-id-1 div.sk-toggleable__content pre { margin: 0.2em;
-border-radius: 0.25em; color: var(–sklearn-color-text); /* unfitted */
-background-color: var(–sklearn-color-unfitted-level-0); }</p>
-<p>#sk-container-id-1 div.sk-toggleable__content.fitted pre { /*
-unfitted */ background-color: var(–sklearn-color-fitted-level-0); }</p>
-<p>#sk-container-id-1
-input.sk-toggleable__control:checked~div.sk-toggleable__content { /*
-Expand drop-down */ display: block; width: 100%; overflow: visible;
-}</p>
-<p>#sk-container-id-1
-input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before
-{ content: “▾”; }</p>
-<p>/* Pipeline/ColumnTransformer-specific style */</p>
-<p>#sk-container-id-1 div.sk-label
-input.sk-toggleable__control:checked~label.sk-toggleable__label { color:
-var(–sklearn-color-text); background-color:
-var(–sklearn-color-unfitted-level-2); }</p>
-<p>#sk-container-id-1 div.sk-label.fitted
-input.sk-toggleable__control:checked~label.sk-toggleable__label {
-background-color: var(–sklearn-color-fitted-level-2); }</p>
-<p>/* Estimator-specific style */</p>
-<p>/* Colorize estimator box */ #sk-container-id-1 div.sk-estimator
-input.sk-toggleable__control:checked~label.sk-toggleable__label { /*
-unfitted */ background-color: var(–sklearn-color-unfitted-level-2);
-}</p>
-<p>#sk-container-id-1 div.sk-estimator.fitted
-input.sk-toggleable__control:checked~label.sk-toggleable__label { /*
-fitted */ background-color: var(–sklearn-color-fitted-level-2); }</p>
-<p>#sk-container-id-1 div.sk-label label.sk-toggleable__label,
-#sk-container-id-1 div.sk-label label { /* The background is the default
-theme color */ color: var(–sklearn-color-text-on-default-background);
-}</p>
-<p>/* On hover, darken the color of the background */ #sk-container-id-1
-div.sk-label:hover label.sk-toggleable__label { color:
-var(–sklearn-color-text); background-color:
-var(–sklearn-color-unfitted-level-2); }</p>
-<p>/* Label box, darken color on hover, fitted */ #sk-container-id-1
-div.sk-label.fitted:hover label.sk-toggleable__label.fitted { color:
-var(–sklearn-color-text); background-color:
-var(–sklearn-color-fitted-level-2); }</p>
-<p>/* Estimator label */</p>
-<p>#sk-container-id-1 div.sk-label label { font-family: monospace;
-font-weight: bold; display: inline-block; line-height: 1.2em; }</p>
-<p>#sk-container-id-1 div.sk-label-container { text-align: center; }</p>
-<p>/* Estimator-specific <em>/ #sk-container-id-1 div.sk-estimator {
-font-family: monospace; border: 1px dotted
-var(–sklearn-color-border-box); border-radius: 0.25em; box-sizing:
-border-box; margin-bottom: 0.5em; /</em> unfitted */ background-color:
-var(–sklearn-color-unfitted-level-0); }</p>
-<p>#sk-container-id-1 div.sk-estimator.fitted { /* fitted */
-background-color: var(–sklearn-color-fitted-level-0); }</p>
-<p>/* on hover <em>/ #sk-container-id-1 div.sk-estimator:hover { /</em>
-unfitted */ background-color: var(–sklearn-color-unfitted-level-2);
-}</p>
-<p>#sk-container-id-1 div.sk-estimator.fitted:hover { /* fitted */
-background-color: var(–sklearn-color-fitted-level-2); }</p>
-<p>/* Specification for estimator info (e.g. “i” and “?”) */</p>
-<p>/* Common style for “i” and “?” */</p>
-<p>.sk-estimator-doc-link, a:link.sk-estimator-doc-link,
-a:visited.sk-estimator-doc-link { float: right; font-size: smaller;
-line-height: 1em; font-family: monospace; background-color:
-var(–sklearn-color-background); border-radius: 1em; height: 1em; width:
-1em; text-decoration: none !important; margin-left: 0.5em; text-align:
-center; /* unfitted */ border: var(–sklearn-color-unfitted-level-1) 1pt
-solid; color: var(–sklearn-color-unfitted-level-1); }</p>
-<p>.sk-estimator-doc-link.fitted, a:link.sk-estimator-doc-link.fitted,
-a:visited.sk-estimator-doc-link.fitted { /* fitted */ border:
-var(–sklearn-color-fitted-level-1) 1pt solid; color:
-var(–sklearn-color-fitted-level-1); }</p>
-<p>/* On hover <em>/ div.sk-estimator:hover
-.sk-estimator-doc-link:hover, .sk-estimator-doc-link:hover,
-div.sk-label-container:hover .sk-estimator-doc-link:hover,
-.sk-estimator-doc-link:hover { /</em> unfitted */ background-color:
-var(–sklearn-color-unfitted-level-3); color:
-var(–sklearn-color-background); text-decoration: none; }</p>
-<p>div.sk-estimator.fitted:hover .sk-estimator-doc-link.fitted:hover,
-.sk-estimator-doc-link.fitted:hover, div.sk-label-container:hover
-.sk-estimator-doc-link.fitted:hover, .sk-estimator-doc-link.fitted:hover
-{ /* fitted */ background-color: var(–sklearn-color-fitted-level-3);
-color: var(–sklearn-color-background); text-decoration: none; }</p>
-<p>/* Span, style for the box shown on hovering the info icon <em>/
-.sk-estimator-doc-link span { display: none; z-index: 9999; position:
-relative; font-weight: normal; right: .2ex; padding: .5ex; margin: .5ex;
-width: min-content; min-width: 20ex; max-width: 50ex; color:
-var(–sklearn-color-text); box-shadow: 2pt 2pt 4pt #999; /</em> unfitted
-*/ background: var(–sklearn-color-unfitted-level-0); border: .5pt solid
-var(–sklearn-color-unfitted-level-3); }</p>
-<p>.sk-estimator-doc-link.fitted span { /* fitted */ background:
-var(–sklearn-color-fitted-level-0); border:
-var(–sklearn-color-fitted-level-3); }</p>
-<p>.sk-estimator-doc-link:hover span { display: block; }</p>
-<p>/* “?”-specific style due to the `` HTML tag */</p>
-<p>#sk-container-id-1 a.estimator_doc_link { float: right; font-size:
-1rem; line-height: 1em; font-family: monospace; background-color:
-var(–sklearn-color-background); border-radius: 1rem; height: 1rem;
-width: 1rem; text-decoration: none; /* unfitted */ color:
-var(–sklearn-color-unfitted-level-1); border:
-var(–sklearn-color-unfitted-level-1) 1pt solid; }</p>
-<p>#sk-container-id-1 a.estimator_doc_link.fitted { /* fitted */ border:
-var(–sklearn-color-fitted-level-1) 1pt solid; color:
-var(–sklearn-color-fitted-level-1); }</p>
-<p>/* On hover <em>/ #sk-container-id-1 a.estimator_doc_link:hover {
-/</em> unfitted */ background-color:
-var(–sklearn-color-unfitted-level-3); color:
-var(–sklearn-color-background); text-decoration: none; }</p>
-<p>#sk-container-id-1 a.estimator_doc_link.fitted:hover { /* fitted */
-background-color: var(–sklearn-color-fitted-level-3); }</p>
-<p>.estimator-table summary { padding: .5rem; font-family: monospace;
-cursor: pointer; }</p>
-<p>.estimator-table details[open] { padding-left: 0.1rem; padding-right:
-0.1rem; padding-bottom: 0.3rem; }</p>
-<p>.estimator-table .parameters-table { margin-left: auto !important;
-margin-right: auto !important; }</p>
-<p>.estimator-table .parameters-table tr:nth-child(odd) {
-background-color: #fff; }</p>
-<p>.estimator-table .parameters-table tr:nth-child(even) {
-background-color: #f6f6f6; }</p>
-<p>.estimator-table .parameters-table tr:hover { background-color:
-#e0e0e0; }</p>
-<p>.estimator-table table td { border: 1px solid rgba(106, 105, 104,
-0.232); }</p>
-<p>.user-set td { color:rgb(255, 94, 0); text-align: left; }</p>
-<p>.user-set td.value pre { color:rgb(255, 94, 0) !important;
-background-color: transparent !important; }</p>
-<p>.default td { color: black; text-align: left; }</p>
-<p>.user-set td i, .default td i { color: black; }</p>
-<p>.copy-paste-icon { background-image: url(<a href="../data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIDYuNy4yIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgQ29weXJpZ2h0IDIwMjUgRm9udGljb25zLCBJbmMuLS0+PHBhdGggZD0iTTIwOCAwTDMzMi4xIDBjMTIuNyAwIDI0LjkgNS4xIDMzLjkgMTQuMWw2Ny45IDY3LjljOSA5IDE0LjEgMjEuMiAxNC4xIDMzLjlMNDQ4IDMzNmMwIDI2LjUtMjEuNSA0OC00OCA0OGwtMTkyIDBjLTI2LjUgMC00OC0yMS41LTQ4LTQ4bDAtMjg4YzAtMjYuNSAyMS41LTQ4IDQ4LTQ4ek00OCAxMjhsODAgMCAwIDY0LTY0IDAgMCAyNTYgMTkyIDAgMC0zMiA2NCAwIDAgNDhjMCAyNi41LTIxLjUgNDgtNDggNDhMNDggNTEyYy0yNi41IDAtNDgtMjEuNS00OC00OEwwIDE3NmMwLTI2LjUgMjEuNS00OCA0OC00OHoiLz48L3N2Zz4=" class="uri">data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIDYuNy4yIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgQ29weXJpZ2h0IDIwMjUgRm9udGljb25zLCBJbmMuLS0+PHBhdGggZD0iTTIwOCAwTDMzMi4xIDBjMTIuNyAwIDI0LjkgNS4xIDMzLjkgMTQuMWw2Ny45IDY3LjljOSA5IDE0LjEgMjEuMiAxNC4xIDMzLjlMNDQ4IDMzNmMwIDI2LjUtMjEuNSA0OC00OCA0OGwtMTkyIDBjLTI2LjUgMC00OC0yMS41LTQ4LTQ4bDAtMjg4YzAtMjYuNSAyMS41LTQ4IDQ4LTQ4ek00OCAxMjhsODAgMCAwIDY0LTY0IDAgMCAyNTYgMTkyIDAgMC0zMiA2NCAwIDAgNDhjMCAyNi41LTIxLjUgNDgtNDggNDhMNDggNTEyYy0yNi41IDAtNDgtMjEuNS00OC00OEwwIDE3NmMwLTI2LjUgMjEuNS00OCA0OC00OHoiLz48L3N2Zz4=</a>);
-background-repeat: no-repeat; background-size: 14px 14px;
-background-position: 0; display: inline-block; width: 14px; height:
-14px; cursor: pointer; } RandomForestClassifier(random_state=42)In a
-Jupyter environment, please rerun this cell to show the HTML
-representation or trust the notebook. On GitHub, the HTML representation
-is unable to render, please try loading this page with
-nbviewer.org.RandomForestClassifier?Documentation for
-RandomForestClassifieriFitted</p>
-<p>Parameters</p>
-<table class="table"><thead><tr class="header"><th></th>
-<th>n_estimators</th>
-<th>100</th>
-</tr></thead><tbody><tr class="odd"><td></td>
-<td>criterion</td>
-<td>‘gini’</td>
-</tr><tr class="even"><td></td>
-<td>max_depth</td>
-<td>None</td>
-</tr><tr class="odd"><td></td>
-<td>min_samples_split</td>
-<td>2</td>
-</tr><tr class="even"><td></td>
-<td>min_samples_leaf</td>
-<td>1</td>
-</tr><tr class="odd"><td></td>
-<td>min_weight_fraction_leaf</td>
-<td>0.0</td>
-</tr><tr class="even"><td></td>
-<td>max_features</td>
-<td>‘sqrt’</td>
-</tr><tr class="odd"><td></td>
-<td>max_leaf_nodes</td>
-<td>None</td>
-</tr><tr class="even"><td></td>
-<td>min_impurity_decrease</td>
-<td>0.0</td>
-</tr><tr class="odd"><td></td>
-<td>bootstrap</td>
-<td>True</td>
-</tr><tr class="even"><td></td>
-<td>oob_score</td>
-<td>False</td>
-</tr><tr class="odd"><td></td>
-<td>n_jobs</td>
-<td>None</td>
-</tr><tr class="even"><td></td>
-<td>random_state</td>
-<td>42</td>
-</tr><tr class="odd"><td></td>
-<td>verbose</td>
-<td>0</td>
-</tr><tr class="even"><td></td>
-<td>warm_start</td>
-<td>False</td>
-</tr><tr class="odd"><td></td>
-<td>class_weight</td>
-<td>None</td>
-</tr><tr class="even"><td></td>
-<td>ccp_alpha</td>
-<td>0.0</td>
-</tr><tr class="odd"><td></td>
-<td>max_samples</td>
-<td>None</td>
-</tr><tr class="even"><td></td>
-<td>monotonic_cst</td>
-<td>None</td>
-</tr></tbody></table><p>function copyToClipboard(text, element) { // Get the parameter prefix
-from the closest toggleable content const toggleableContent =
-element.closest(’.sk-toggleable__content’); const paramPrefix =
-toggleableContent ? toggleableContent.dataset.paramPrefix : ’’; const
-fullParamName = paramPrefix ? <code>${paramPrefix}${text}</code> :
-text;</p>
-<div class="codewrapper sourceCode" id="cb3">
-<h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">const</span> originalStyle = element.style<span class="kw">;</span></span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="ex">const</span> computedStyle = window.getComputedStyle<span class="er">(</span><span class="ex">element</span><span class="kw">);</span></span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="ex">const</span> originalWidth = computedStyle.width<span class="kw">;</span></span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="ex">const</span> originalHTML = element.innerHTML.replace<span class="er">(</span><span class="st">'Copied!'</span><span class="ex">,</span> <span class="st">''</span><span class="kw">);</span></span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="ex">navigator.clipboard.writeText</span><span class="er">(</span><span class="ex">fullParamName</span><span class="kw">)</span></span>
-<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>    <span class="ex">.then</span><span class="er">((</span><span class="kw">)</span> <span class="ex">=</span><span class="op">&gt;</span> {</span>
-<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>        <span class="ex">element.style.width</span> = originalWidth<span class="kw">;</span></span>
-<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a>        <span class="ex">element.style.color</span> = <span class="st">'green'</span><span class="kw">;</span></span>
-<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a>        <span class="ex">element.innerHTML</span> = <span class="st">"Copied!"</span><span class="kw">;</span></span>
-<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a>        <span class="ex">setTimeout</span><span class="er">((</span><span class="kw">)</span> <span class="ex">=</span><span class="op">&gt;</span> {</span>
-<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a>            <span class="ex">element.innerHTML</span> = originalHTML<span class="kw">;</span></span>
-<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a>            <span class="ex">element.style</span> = originalStyle<span class="kw">;</span></span>
-<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a>        <span class="er">}</span><span class="ex">,</span> 2000<span class="kw">);</span></span>
-<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a>    <span class="er">}</span><span class="kw">)</span></span>
-<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a>    <span class="ex">.catch</span><span class="er">(</span><span class="ex">err</span> =<span class="op">&gt;</span> {</span>
-<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a>        <span class="ex">console.error</span><span class="er">(</span><span class="st">'Failed to copy:'</span><span class="ex">,</span> err<span class="kw">);</span></span>
-<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a>        <span class="ex">element.style.color</span> = <span class="st">'red'</span><span class="kw">;</span></span>
-<span id="cb3-20"><a href="#cb3-20" tabindex="-1"></a>        <span class="ex">element.innerHTML</span> = <span class="st">"Failed!"</span><span class="kw">;</span></span>
-<span id="cb3-21"><a href="#cb3-21" tabindex="-1"></a>        <span class="ex">setTimeout</span><span class="er">((</span><span class="kw">)</span> <span class="ex">=</span><span class="op">&gt;</span> {</span>
-<span id="cb3-22"><a href="#cb3-22" tabindex="-1"></a>            <span class="ex">element.innerHTML</span> = originalHTML<span class="kw">;</span></span>
-<span id="cb3-23"><a href="#cb3-23" tabindex="-1"></a>            <span class="ex">element.style</span> = originalStyle<span class="kw">;</span></span>
-<span id="cb3-24"><a href="#cb3-24" tabindex="-1"></a>        <span class="er">}</span><span class="ex">,</span> 2000<span class="kw">);</span></span>
-<span id="cb3-25"><a href="#cb3-25" tabindex="-1"></a>    <span class="er">}</span><span class="kw">);</span></span>
-<span id="cb3-26"><a href="#cb3-26" tabindex="-1"></a><span class="cf">return</span> <span class="fu">false</span><span class="kw">;</span></span></code></pre>
-</div>
-<p>}</p>
-<p>document.querySelectorAll(‘.fa-regular.fa-copy’).forEach(function(element)
-{ const toggleableContent = element.closest(’.sk-toggleable__content’);
-const paramPrefix = toggleableContent ?
-toggleableContent.dataset.paramPrefix : ’’; const paramName =
-element.parentElement.nextElementSibling.textContent.trim(); const
-fullParamName = paramPrefix ? <code>${paramPrefix}${paramName}</code> :
-paramName;</p>
-<div class="codewrapper sourceCode" id="cb4">
-<h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">element.setAttribute</span><span class="er">(</span><span class="st">'title'</span><span class="ex">,</span> fullParamName<span class="kw">);</span></span></code></pre>
-</div>
-<p>});</p>
 </div>
 <div class="section level2">
 <h2 id="step-4-evaluate-the-model">Step 4: Evaluate the Model<a class="anchor" aria-label="anchor" href="#step-4-evaluate-the-model"></a></h2>
-<div class="codewrapper sourceCode" id="cb5">
+<div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> (</span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>    accuracy_score, precision_score, recall_score, f1_score,</span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>    ConfusionMatrixDisplay, classification_report, roc_curve, auc</span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>)</span>
-<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>y_pred <span class="op">=</span> model.predict(X_test)</span>
-<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Accuracy:"</span>, accuracy_score(y_test, y_pred))</span>
-<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Precision:"</span>, precision_score(y_test, y_pred))</span>
-<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Recall:"</span>, recall_score(y_test, y_pred))</span>
-<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"F1 Score:"</span>, f1_score(y_test, y_pred))</span>
-<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Classification Report:</span><span class="ch">\n</span><span class="st">"</span>, classification_report(y_test, y_pred))</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> (</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>    accuracy_score, precision_score, recall_score, f1_score,</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>    ConfusionMatrixDisplay, classification_report, roc_curve, auc</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>)</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>y_pred <span class="op">=</span> model.predict(X_test)</span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Accuracy:"</span>, accuracy_score(y_test, y_pred))</span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Precision:"</span>, precision_score(y_test, y_pred))</span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Recall:"</span>, recall_score(y_test, y_pred))</span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"F1 Score:"</span>, f1_score(y_test, y_pred))</span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Classification Report:</span><span class="ch">\n</span><span class="st">"</span>, classification_report(y_test, y_pred))</span></code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb6">
+<div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">Accuracy:</span> 0.9590643274853801</span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="ex">Precision:</span> 0.9636363636363636</span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="ex">Recall:</span> 0.9724770642201835</span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="ex">F1</span> Score: 0.9680365296803652</span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="ex">Classification</span> Report:</span>
-<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>               <span class="ex">precision</span>    recall  f1-score   support</span>
-<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a></span>
-<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>           <span class="ex">0</span>       0.95      0.94      0.94        62</span>
-<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>           <span class="ex">1</span>       0.96      0.97      0.97       109</span>
-<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a></span>
-<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a>    <span class="ex">accuracy</span>                           0.96       171</span>
-<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a>   <span class="ex">macro</span> avg       0.96      0.95      0.96       171</span>
-<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a><span class="ex">weighted</span> avg       0.96      0.96      0.96       171</span></code></pre>
+<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">Accuracy:</span> 0.9590643274853801</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="ex">Precision:</span> 0.9636363636363636</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="ex">Recall:</span> 0.9724770642201835</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="ex">F1</span> Score: 0.9680365296803652</span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="ex">Classification</span> Report:</span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a>               <span class="ex">precision</span>    recall  f1-score   support</span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a>           <span class="ex">0</span>       0.95      0.94      0.94        62</span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a>           <span class="ex">1</span>       0.96      0.97      0.97       109</span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a>    <span class="ex">accuracy</span>                           0.96       171</span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a>   <span class="ex">macro</span> avg       0.96      0.95      0.96       171</span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a><span class="ex">weighted</span> avg       0.96      0.96      0.96       171</span></code></pre>
 </div>
 <div class="section level3">
 <h3 id="what-is-a-confusion-matrix">What is a Confusion Matrix?<a class="anchor" aria-label="anchor" href="#what-is-a-confusion-matrix"></a></h3>
@@ -803,15 +460,15 @@ results:</p>
 <td>True Negative (TN)</td>
 </tr></tbody></table><ul><li>Accuracy, Precision, Recall, F1 Score are all derived from this
 table.</li>
-</ul><div class="codewrapper sourceCode" id="cb7">
+</ul><div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>ConfusionMatrixDisplay.from_estimator(model, X_test, y_test)</span>
-<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>plt.title(<span class="st">'SVM Confusion Matrix'</span>)</span>
-<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>plt.show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>ConfusionMatrixDisplay.from_estimator(model, X_test, y_test)</span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>plt.title(<span class="st">'SVM Confusion Matrix'</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>plt.show()</span></code></pre>
 </div>
 <figure><img src="../09_random_forest/output_9_0.png" alt="png" class="figure mx-auto d-block"><div class="figcaption">png</div>
 </figure></div>
@@ -821,20 +478,20 @@ table.</li>
 Positive Rate (Recall) and False Positive Rate. The <strong>AUC (Area
 Under Curve)</strong> summarizes the performance into a single
 number.</p>
-<div class="codewrapper sourceCode" id="cb8">
+<div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>y_proba <span class="op">=</span> model.predict_proba(X_test)[:, <span class="dv">1</span>]</span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>fpr, tpr, _ <span class="op">=</span> roc_curve(y_test, y_proba)</span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>roc_auc <span class="op">=</span> auc(fpr, tpr)</span>
-<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>plt.plot(fpr, tpr, label<span class="op">=</span><span class="st">'AUC = '</span> <span class="op">+</span> <span class="bu">str</span>(<span class="bu">round</span>(roc_auc, <span class="dv">2</span>)))</span>
-<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>plt.plot([<span class="dv">0</span>, <span class="dv">1</span>], [<span class="dv">0</span>, <span class="dv">1</span>], <span class="st">'k--'</span>)</span>
-<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>plt.xlabel(<span class="st">'False Positive Rate'</span>)</span>
-<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a>plt.ylabel(<span class="st">'True Positive Rate'</span>)</span>
-<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a>plt.title(<span class="st">'SVM ROC Curve'</span>)</span>
-<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a>plt.legend()</span>
-<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a>plt.show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>y_proba <span class="op">=</span> model.predict_proba(X_test)[:, <span class="dv">1</span>]</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>fpr, tpr, _ <span class="op">=</span> roc_curve(y_test, y_proba)</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>roc_auc <span class="op">=</span> auc(fpr, tpr)</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>plt.plot(fpr, tpr, label<span class="op">=</span><span class="st">'AUC = '</span> <span class="op">+</span> <span class="bu">str</span>(<span class="bu">round</span>(roc_auc, <span class="dv">2</span>)))</span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>plt.plot([<span class="dv">0</span>, <span class="dv">1</span>], [<span class="dv">0</span>, <span class="dv">1</span>], <span class="st">'k--'</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>plt.xlabel(<span class="st">'False Positive Rate'</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>plt.ylabel(<span class="st">'True Positive Rate'</span>)</span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>plt.title(<span class="st">'SVM ROC Curve'</span>)</span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>plt.legend()</span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a>plt.show()</span></code></pre>
 </div>
 <figure><img src="../09_random_forest/output_11_0.png" alt="png" class="figure mx-auto d-block"><div class="figcaption">png</div>
 </figure><!--
