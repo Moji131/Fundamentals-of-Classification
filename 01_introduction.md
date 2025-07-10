@@ -34,10 +34,12 @@ By the end of this workshop, you will be able to:
 ## Required Libraries
 
 We will use the following Python libraries throughout the workshop:
+
 - `NumPy` – numerical operations
 - `Pandas` – data manipulation
 - `Scikit-Learn` – machine learning models and tools
 - `Matplotlib` – data visualisation
+- `Seaborn` – data visualisation
 
 ## Setup Instructions
 
@@ -49,5 +51,6 @@ Follow the instructions in "01_introduction.ipynb" notebook to ensure you have t
 - pandas
 - scikit-learn
 - matplotlib
+- seaborn
 
 
