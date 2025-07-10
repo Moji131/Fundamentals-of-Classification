@@ -3,796 +3,646 @@ title: "Introduction to Classification"
 teaching: 10
 exercises: 0
 ---
-
 # Introduction to Classification
-
 ## What is Classification?
-
 Classification is a type of supervised learning where the goal is to predict categorical class labels. Given input data, a classification model attempts to assign it to one of several predefined classes.
-
 Some examples include:
 - Email spam detection (spam vs. not spam)
 - Disease diagnosis (positive vs. negative)
 - Image recognition (cat, dog, or other)
-
 ## Workshop Goals
-
 By the end of this workshop, you will be able to:
 - Understand common classification algorithms
 - Apply them using Scikit-Learn, NumPy, Pandas, and Matplotlib
 - Evaluate and optimise models
-
-
 ## Topics Covered
-
 1. Logistic Regression
 2. Support Vector Machines (SVM)
 3. Model Evaluation: Accuracy, Precision, Recall, F1-Score, ROC-AUC
 4. Neural Networks (MLPClassifier)
 5. Random Forest Classifier 
 6. Optimisation and Tuning
-
 ## Required Libraries
-
 We will use the following Python libraries throughout the workshop:
 - `NumPy` – numerical operations
 - `Pandas` – data manipulation
 - `Scikit-Learn` – machine learning models and tools
 - `Matplotlib` – data visualisation
 - `Seaborn` - data visualisation
-
-
 ---
-
 Let's get started! 🚀
-
-
 ### Installing Libraries
-
 Uncomment and run the commands below only if packages are not installed. 
-
 ```python
 # !pip install numpy
 # !pip install pandas
 # !pip install scikit-learn
 # !pip install matplotlib
 # !pip install seaborn
-
 ```
-
 ### Check your environment has the necessary libraries installed
-
 ```python
 import numpy
 print("NumPy version:", numpy.__version__)
-
 import pandas
 print("Pandas version:", pandas.__version__)
-
 import sklearn
 print("sklearn version:", sklearn.__version__)
-
 import matplotlib
 print("matplotlib version:", matplotlib.__version__)
-
 import seaborn
 print("sklearn version:", seaborn.__version__)
 ```
-
     NumPy version: 2.2.6
     Pandas version: 2.2.3
     sklearn version: 1.7.0
     matplotlib version: 3.10.3
     sklearn version: 0.13.2
-
-
 ```python
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn import datasets
-
 ```
-
 ### Preview Example Dataset
 We use the `load_breast_cancer()` dataset from Scikit-Learn. It includes 30 numeric features extracted from breast mass images.
-
 ```python
 from sklearn.datasets import load_breast_cancer
 import pandas as pd
-
 data = load_breast_cancer()
 X = data.data
 y = data.target
-
 df = pd.DataFrame(X, columns=data.feature_names)
 df['target'] = y
 df.head()
 ```
-
-
-
-
-<div>
-<style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
-
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
     .dataframe thead th {
         text-align: right;
     }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>mean radius</th>
-      <th>mean texture</th>
-      <th>mean perimeter</th>
-      <th>mean area</th>
-      <th>mean smoothness</th>
-      <th>mean compactness</th>
-      <th>mean concavity</th>
-      <th>mean concave points</th>
-      <th>mean symmetry</th>
-      <th>mean fractal dimension</th>
-      <th>...</th>
-      <th>worst texture</th>
-      <th>worst perimeter</th>
-      <th>worst area</th>
-      <th>worst smoothness</th>
-      <th>worst compactness</th>
-      <th>worst concavity</th>
-      <th>worst concave points</th>
-      <th>worst symmetry</th>
-      <th>worst fractal dimension</th>
-      <th>target</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>17.99</td>
-      <td>10.38</td>
-      <td>122.80</td>
-      <td>1001.0</td>
-      <td>0.11840</td>
-      <td>0.27760</td>
-      <td>0.3001</td>
-      <td>0.14710</td>
-      <td>0.2419</td>
-      <td>0.07871</td>
-      <td>...</td>
-      <td>17.33</td>
-      <td>184.60</td>
-      <td>2019.0</td>
-      <td>0.1622</td>
-      <td>0.6656</td>
-      <td>0.7119</td>
-      <td>0.2654</td>
-      <td>0.4601</td>
-      <td>0.11890</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>20.57</td>
-      <td>17.77</td>
-      <td>132.90</td>
-      <td>1326.0</td>
-      <td>0.08474</td>
-      <td>0.07864</td>
-      <td>0.0869</td>
-      <td>0.07017</td>
-      <td>0.1812</td>
-      <td>0.05667</td>
-      <td>...</td>
-      <td>23.41</td>
-      <td>158.80</td>
-      <td>1956.0</td>
-      <td>0.1238</td>
-      <td>0.1866</td>
-      <td>0.2416</td>
-      <td>0.1860</td>
-      <td>0.2750</td>
-      <td>0.08902</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>19.69</td>
-      <td>21.25</td>
-      <td>130.00</td>
-      <td>1203.0</td>
-      <td>0.10960</td>
-      <td>0.15990</td>
-      <td>0.1974</td>
-      <td>0.12790</td>
-      <td>0.2069</td>
-      <td>0.05999</td>
-      <td>...</td>
-      <td>25.53</td>
-      <td>152.50</td>
-      <td>1709.0</td>
-      <td>0.1444</td>
-      <td>0.4245</td>
-      <td>0.4504</td>
-      <td>0.2430</td>
-      <td>0.3613</td>
-      <td>0.08758</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>11.42</td>
-      <td>20.38</td>
-      <td>77.58</td>
-      <td>386.1</td>
-      <td>0.14250</td>
-      <td>0.28390</td>
-      <td>0.2414</td>
-      <td>0.10520</td>
-      <td>0.2597</td>
-      <td>0.09744</td>
-      <td>...</td>
-      <td>26.50</td>
-      <td>98.87</td>
-      <td>567.7</td>
-      <td>0.2098</td>
-      <td>0.8663</td>
-      <td>0.6869</td>
-      <td>0.2575</td>
-      <td>0.6638</td>
-      <td>0.17300</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>20.29</td>
-      <td>14.34</td>
-      <td>135.10</td>
-      <td>1297.0</td>
-      <td>0.10030</td>
-      <td>0.13280</td>
-      <td>0.1980</td>
-      <td>0.10430</td>
-      <td>0.1809</td>
-      <td>0.05883</td>
-      <td>...</td>
-      <td>16.67</td>
-      <td>152.20</td>
-      <td>1575.0</td>
-      <td>0.1374</td>
-      <td>0.2050</td>
-      <td>0.4000</td>
-      <td>0.1625</td>
-      <td>0.2364</td>
-      <td>0.07678</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
-<p>5 rows × 31 columns</p>
-</div>
-
-
-
+      mean radius
+      mean texture
+      mean perimeter
+      mean area
+      mean smoothness
+      mean compactness
+      mean concavity
+      mean concave points
+      mean symmetry
+      mean fractal dimension
+      ...
+      worst texture
+      worst perimeter
+      worst area
+      worst smoothness
+      worst compactness
+      worst concavity
+      worst concave points
+      worst symmetry
+      worst fractal dimension
+      target
+      0
+      17.99
+      10.38
+      122.80
+      1001.0
+      0.11840
+      0.27760
+      0.3001
+      0.14710
+      0.2419
+      0.07871
+      ...
+      17.33
+      184.60
+      2019.0
+      0.1622
+      0.6656
+      0.7119
+      0.2654
+      0.4601
+      0.11890
+      0
+      1
+      20.57
+      17.77
+      132.90
+      1326.0
+      0.08474
+      0.07864
+      0.0869
+      0.07017
+      0.1812
+      0.05667
+      ...
+      23.41
+      158.80
+      1956.0
+      0.1238
+      0.1866
+      0.2416
+      0.1860
+      0.2750
+      0.08902
+      0
+      2
+      19.69
+      21.25
+      130.00
+      1203.0
+      0.10960
+      0.15990
+      0.1974
+      0.12790
+      0.2069
+      0.05999
+      ...
+      25.53
+      152.50
+      1709.0
+      0.1444
+      0.4245
+      0.4504
+      0.2430
+      0.3613
+      0.08758
+      0
+      3
+      11.42
+      20.38
+      77.58
+      386.1
+      0.14250
+      0.28390
+      0.2414
+      0.10520
+      0.2597
+      0.09744
+      ...
+      26.50
+      98.87
+      567.7
+      0.2098
+      0.8663
+      0.6869
+      0.2575
+      0.6638
+      0.17300
+      0
+      4
+      20.29
+      14.34
+      135.10
+      1297.0
+      0.10030
+      0.13280
+      0.1980
+      0.10430
+      0.1809
+      0.05883
+      ...
+      16.67
+      152.20
+      1575.0
+      0.1374
+      0.2050
+      0.4000
+      0.1625
+      0.2364
+      0.07678
+      0
+5 rows × 31 columns
 ```python
 df.describe()
 ```
-
-
-
-
-<div>
-<style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
-
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
     .dataframe thead th {
         text-align: right;
     }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>mean radius</th>
-      <th>mean texture</th>
-      <th>mean perimeter</th>
-      <th>mean area</th>
-      <th>mean smoothness</th>
-      <th>mean compactness</th>
-      <th>mean concavity</th>
-      <th>mean concave points</th>
-      <th>mean symmetry</th>
-      <th>mean fractal dimension</th>
-      <th>...</th>
-      <th>worst texture</th>
-      <th>worst perimeter</th>
-      <th>worst area</th>
-      <th>worst smoothness</th>
-      <th>worst compactness</th>
-      <th>worst concavity</th>
-      <th>worst concave points</th>
-      <th>worst symmetry</th>
-      <th>worst fractal dimension</th>
-      <th>target</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>569.000000</td>
-      <td>569.000000</td>
-      <td>569.000000</td>
-      <td>569.000000</td>
-      <td>569.000000</td>
-      <td>569.000000</td>
-      <td>569.000000</td>
-      <td>569.000000</td>
-      <td>569.000000</td>
-      <td>569.000000</td>
-      <td>...</td>
-      <td>569.000000</td>
-      <td>569.000000</td>
-      <td>569.000000</td>
-      <td>569.000000</td>
-      <td>569.000000</td>
-      <td>569.000000</td>
-      <td>569.000000</td>
-      <td>569.000000</td>
-      <td>569.000000</td>
-      <td>569.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>14.127292</td>
-      <td>19.289649</td>
-      <td>91.969033</td>
-      <td>654.889104</td>
-      <td>0.096360</td>
-      <td>0.104341</td>
-      <td>0.088799</td>
-      <td>0.048919</td>
-      <td>0.181162</td>
-      <td>0.062798</td>
-      <td>...</td>
-      <td>25.677223</td>
-      <td>107.261213</td>
-      <td>880.583128</td>
-      <td>0.132369</td>
-      <td>0.254265</td>
-      <td>0.272188</td>
-      <td>0.114606</td>
-      <td>0.290076</td>
-      <td>0.083946</td>
-      <td>0.627417</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>3.524049</td>
-      <td>4.301036</td>
-      <td>24.298981</td>
-      <td>351.914129</td>
-      <td>0.014064</td>
-      <td>0.052813</td>
-      <td>0.079720</td>
-      <td>0.038803</td>
-      <td>0.027414</td>
-      <td>0.007060</td>
-      <td>...</td>
-      <td>6.146258</td>
-      <td>33.602542</td>
-      <td>569.356993</td>
-      <td>0.022832</td>
-      <td>0.157336</td>
-      <td>0.208624</td>
-      <td>0.065732</td>
-      <td>0.061867</td>
-      <td>0.018061</td>
-      <td>0.483918</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>6.981000</td>
-      <td>9.710000</td>
-      <td>43.790000</td>
-      <td>143.500000</td>
-      <td>0.052630</td>
-      <td>0.019380</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.106000</td>
-      <td>0.049960</td>
-      <td>...</td>
-      <td>12.020000</td>
-      <td>50.410000</td>
-      <td>185.200000</td>
-      <td>0.071170</td>
-      <td>0.027290</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.156500</td>
-      <td>0.055040</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>11.700000</td>
-      <td>16.170000</td>
-      <td>75.170000</td>
-      <td>420.300000</td>
-      <td>0.086370</td>
-      <td>0.064920</td>
-      <td>0.029560</td>
-      <td>0.020310</td>
-      <td>0.161900</td>
-      <td>0.057700</td>
-      <td>...</td>
-      <td>21.080000</td>
-      <td>84.110000</td>
-      <td>515.300000</td>
-      <td>0.116600</td>
-      <td>0.147200</td>
-      <td>0.114500</td>
-      <td>0.064930</td>
-      <td>0.250400</td>
-      <td>0.071460</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>13.370000</td>
-      <td>18.840000</td>
-      <td>86.240000</td>
-      <td>551.100000</td>
-      <td>0.095870</td>
-      <td>0.092630</td>
-      <td>0.061540</td>
-      <td>0.033500</td>
-      <td>0.179200</td>
-      <td>0.061540</td>
-      <td>...</td>
-      <td>25.410000</td>
-      <td>97.660000</td>
-      <td>686.500000</td>
-      <td>0.131300</td>
-      <td>0.211900</td>
-      <td>0.226700</td>
-      <td>0.099930</td>
-      <td>0.282200</td>
-      <td>0.080040</td>
-      <td>1.000000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>15.780000</td>
-      <td>21.800000</td>
-      <td>104.100000</td>
-      <td>782.700000</td>
-      <td>0.105300</td>
-      <td>0.130400</td>
-      <td>0.130700</td>
-      <td>0.074000</td>
-      <td>0.195700</td>
-      <td>0.066120</td>
-      <td>...</td>
-      <td>29.720000</td>
-      <td>125.400000</td>
-      <td>1084.000000</td>
-      <td>0.146000</td>
-      <td>0.339100</td>
-      <td>0.382900</td>
-      <td>0.161400</td>
-      <td>0.317900</td>
-      <td>0.092080</td>
-      <td>1.000000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>28.110000</td>
-      <td>39.280000</td>
-      <td>188.500000</td>
-      <td>2501.000000</td>
-      <td>0.163400</td>
-      <td>0.345400</td>
-      <td>0.426800</td>
-      <td>0.201200</td>
-      <td>0.304000</td>
-      <td>0.097440</td>
-      <td>...</td>
-      <td>49.540000</td>
-      <td>251.200000</td>
-      <td>4254.000000</td>
-      <td>0.222600</td>
-      <td>1.058000</td>
-      <td>1.252000</td>
-      <td>0.291000</td>
-      <td>0.663800</td>
-      <td>0.207500</td>
-      <td>1.000000</td>
-    </tr>
-  </tbody>
-</table>
-<p>8 rows × 31 columns</p>
-</div>
-
-
-
+      mean radius
+      mean texture
+      mean perimeter
+      mean area
+      mean smoothness
+      mean compactness
+      mean concavity
+      mean concave points
+      mean symmetry
+      mean fractal dimension
+      ...
+      worst texture
+      worst perimeter
+      worst area
+      worst smoothness
+      worst compactness
+      worst concavity
+      worst concave points
+      worst symmetry
+      worst fractal dimension
+      target
+      count
+      569.000000
+      569.000000
+      569.000000
+      569.000000
+      569.000000
+      569.000000
+      569.000000
+      569.000000
+      569.000000
+      569.000000
+      ...
+      569.000000
+      569.000000
+      569.000000
+      569.000000
+      569.000000
+      569.000000
+      569.000000
+      569.000000
+      569.000000
+      569.000000
+      mean
+      14.127292
+      19.289649
+      91.969033
+      654.889104
+      0.096360
+      0.104341
+      0.088799
+      0.048919
+      0.181162
+      0.062798
+      ...
+      25.677223
+      107.261213
+      880.583128
+      0.132369
+      0.254265
+      0.272188
+      0.114606
+      0.290076
+      0.083946
+      0.627417
+      std
+      3.524049
+      4.301036
+      24.298981
+      351.914129
+      0.014064
+      0.052813
+      0.079720
+      0.038803
+      0.027414
+      0.007060
+      ...
+      6.146258
+      33.602542
+      569.356993
+      0.022832
+      0.157336
+      0.208624
+      0.065732
+      0.061867
+      0.018061
+      0.483918
+      min
+      6.981000
+      9.710000
+      43.790000
+      143.500000
+      0.052630
+      0.019380
+      0.000000
+      0.000000
+      0.106000
+      0.049960
+      ...
+      12.020000
+      50.410000
+      185.200000
+      0.071170
+      0.027290
+      0.000000
+      0.000000
+      0.156500
+      0.055040
+      0.000000
+      25%
+      11.700000
+      16.170000
+      75.170000
+      420.300000
+      0.086370
+      0.064920
+      0.029560
+      0.020310
+      0.161900
+      0.057700
+      ...
+      21.080000
+      84.110000
+      515.300000
+      0.116600
+      0.147200
+      0.114500
+      0.064930
+      0.250400
+      0.071460
+      0.000000
+      50%
+      13.370000
+      18.840000
+      86.240000
+      551.100000
+      0.095870
+      0.092630
+      0.061540
+      0.033500
+      0.179200
+      0.061540
+      ...
+      25.410000
+      97.660000
+      686.500000
+      0.131300
+      0.211900
+      0.226700
+      0.099930
+      0.282200
+      0.080040
+      1.000000
+      75%
+      15.780000
+      21.800000
+      104.100000
+      782.700000
+      0.105300
+      0.130400
+      0.130700
+      0.074000
+      0.195700
+      0.066120
+      ...
+      29.720000
+      125.400000
+      1084.000000
+      0.146000
+      0.339100
+      0.382900
+      0.161400
+      0.317900
+      0.092080
+      1.000000
+      max
+      28.110000
+      39.280000
+      188.500000
+      2501.000000
+      0.163400
+      0.345400
+      0.426800
+      0.201200
+      0.304000
+      0.097440
+      ...
+      49.540000
+      251.200000
+      4254.000000
+      0.222600
+      1.058000
+      1.252000
+      0.291000
+      0.663800
+      0.207500
+      1.000000
+8 rows × 31 columns
 ```python
 df.hist(bins=20, figsize=(15, 10))
 plt.tight_layout()
 ```
-
-
-    
 ![png](output_10_0.png)
-    
-
-
 ```python
 from sklearn.preprocessing import StandardScaler
-
 # Apply StandardScaler
 scaler = StandardScaler()
 df_scaled = pd.DataFrame(scaler.fit_transform(df), columns=df.columns, index=df.index)
 df_scaled.describe()
-
-
-
 ```
-
-
-
-
-<div>
-<style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
-
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
     .dataframe thead th {
         text-align: right;
     }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>mean radius</th>
-      <th>mean texture</th>
-      <th>mean perimeter</th>
-      <th>mean area</th>
-      <th>mean smoothness</th>
-      <th>mean compactness</th>
-      <th>mean concavity</th>
-      <th>mean concave points</th>
-      <th>mean symmetry</th>
-      <th>mean fractal dimension</th>
-      <th>...</th>
-      <th>worst texture</th>
-      <th>worst perimeter</th>
-      <th>worst area</th>
-      <th>worst smoothness</th>
-      <th>worst compactness</th>
-      <th>worst concavity</th>
-      <th>worst concave points</th>
-      <th>worst symmetry</th>
-      <th>worst fractal dimension</th>
-      <th>target</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>5.690000e+02</td>
-      <td>5.690000e+02</td>
-      <td>5.690000e+02</td>
-      <td>5.690000e+02</td>
-      <td>5.690000e+02</td>
-      <td>5.690000e+02</td>
-      <td>5.690000e+02</td>
-      <td>5.690000e+02</td>
-      <td>5.690000e+02</td>
-      <td>5.690000e+02</td>
-      <td>...</td>
-      <td>5.690000e+02</td>
-      <td>5.690000e+02</td>
-      <td>569.000000</td>
-      <td>5.690000e+02</td>
-      <td>5.690000e+02</td>
-      <td>5.690000e+02</td>
-      <td>5.690000e+02</td>
-      <td>5.690000e+02</td>
-      <td>5.690000e+02</td>
-      <td>5.690000e+02</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>-1.373633e-16</td>
-      <td>6.868164e-17</td>
-      <td>-1.248757e-16</td>
-      <td>-2.185325e-16</td>
-      <td>-8.366672e-16</td>
-      <td>1.873136e-16</td>
-      <td>4.995028e-17</td>
-      <td>-4.995028e-17</td>
-      <td>1.748260e-16</td>
-      <td>4.745277e-16</td>
-      <td>...</td>
-      <td>1.248757e-17</td>
-      <td>-3.746271e-16</td>
-      <td>0.000000</td>
-      <td>-2.372638e-16</td>
-      <td>-3.371644e-16</td>
-      <td>7.492542e-17</td>
-      <td>2.247763e-16</td>
-      <td>2.622390e-16</td>
-      <td>-5.744282e-16</td>
-      <td>-4.995028e-17</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>1.000880e+00</td>
-      <td>1.000880e+00</td>
-      <td>1.000880e+00</td>
-      <td>1.000880e+00</td>
-      <td>1.000880e+00</td>
-      <td>1.000880e+00</td>
-      <td>1.000880e+00</td>
-      <td>1.000880e+00</td>
-      <td>1.000880e+00</td>
-      <td>1.000880e+00</td>
-      <td>...</td>
-      <td>1.000880e+00</td>
-      <td>1.000880e+00</td>
-      <td>1.000880</td>
-      <td>1.000880e+00</td>
-      <td>1.000880e+00</td>
-      <td>1.000880e+00</td>
-      <td>1.000880e+00</td>
-      <td>1.000880e+00</td>
-      <td>1.000880e+00</td>
-      <td>1.000880e+00</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>-2.029648e+00</td>
-      <td>-2.229249e+00</td>
-      <td>-1.984504e+00</td>
-      <td>-1.454443e+00</td>
-      <td>-3.112085e+00</td>
-      <td>-1.610136e+00</td>
-      <td>-1.114873e+00</td>
-      <td>-1.261820e+00</td>
-      <td>-2.744117e+00</td>
-      <td>-1.819865e+00</td>
-      <td>...</td>
-      <td>-2.223994e+00</td>
-      <td>-1.693361e+00</td>
-      <td>-1.222423</td>
-      <td>-2.682695e+00</td>
-      <td>-1.443878e+00</td>
-      <td>-1.305831e+00</td>
-      <td>-1.745063e+00</td>
-      <td>-2.160960e+00</td>
-      <td>-1.601839e+00</td>
-      <td>-1.297676e+00</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>-6.893853e-01</td>
-      <td>-7.259631e-01</td>
-      <td>-6.919555e-01</td>
-      <td>-6.671955e-01</td>
-      <td>-7.109628e-01</td>
-      <td>-7.470860e-01</td>
-      <td>-7.437479e-01</td>
-      <td>-7.379438e-01</td>
-      <td>-7.032397e-01</td>
-      <td>-7.226392e-01</td>
-      <td>...</td>
-      <td>-7.486293e-01</td>
-      <td>-6.895783e-01</td>
-      <td>-0.642136</td>
-      <td>-6.912304e-01</td>
-      <td>-6.810833e-01</td>
-      <td>-7.565142e-01</td>
-      <td>-7.563999e-01</td>
-      <td>-6.418637e-01</td>
-      <td>-6.919118e-01</td>
-      <td>-1.297676e+00</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>-2.150816e-01</td>
-      <td>-1.046362e-01</td>
-      <td>-2.359800e-01</td>
-      <td>-2.951869e-01</td>
-      <td>-3.489108e-02</td>
-      <td>-2.219405e-01</td>
-      <td>-3.422399e-01</td>
-      <td>-3.977212e-01</td>
-      <td>-7.162650e-02</td>
-      <td>-1.782793e-01</td>
-      <td>...</td>
-      <td>-4.351564e-02</td>
-      <td>-2.859802e-01</td>
-      <td>-0.341181</td>
-      <td>-4.684277e-02</td>
-      <td>-2.695009e-01</td>
-      <td>-2.182321e-01</td>
-      <td>-2.234689e-01</td>
-      <td>-1.274095e-01</td>
-      <td>-2.164441e-01</td>
-      <td>7.706085e-01</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>4.693926e-01</td>
-      <td>5.841756e-01</td>
-      <td>4.996769e-01</td>
-      <td>3.635073e-01</td>
-      <td>6.361990e-01</td>
-      <td>4.938569e-01</td>
-      <td>5.260619e-01</td>
-      <td>6.469351e-01</td>
-      <td>5.307792e-01</td>
-      <td>4.709834e-01</td>
-      <td>...</td>
-      <td>6.583411e-01</td>
-      <td>5.402790e-01</td>
-      <td>0.357589</td>
-      <td>5.975448e-01</td>
-      <td>5.396688e-01</td>
-      <td>5.311411e-01</td>
-      <td>7.125100e-01</td>
-      <td>4.501382e-01</td>
-      <td>4.507624e-01</td>
-      <td>7.706085e-01</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>3.971288e+00</td>
-      <td>4.651889e+00</td>
-      <td>3.976130e+00</td>
-      <td>5.250529e+00</td>
-      <td>4.770911e+00</td>
-      <td>4.568425e+00</td>
-      <td>4.243589e+00</td>
-      <td>3.927930e+00</td>
-      <td>4.484751e+00</td>
-      <td>4.910919e+00</td>
-      <td>...</td>
-      <td>3.885905e+00</td>
-      <td>4.287337e+00</td>
-      <td>5.930172</td>
-      <td>3.955374e+00</td>
-      <td>5.112877e+00</td>
-      <td>4.700669e+00</td>
-      <td>2.685877e+00</td>
-      <td>6.046041e+00</td>
-      <td>6.846856e+00</td>
-      <td>7.706085e-01</td>
-    </tr>
-  </tbody>
-</table>
-<p>8 rows × 31 columns</p>
-</div>
-
-
+      mean radius
+      mean texture
+      mean perimeter
+      mean area
+      mean smoothness
+      mean compactness
+      mean concavity
+      mean concave points
+      mean symmetry
+      mean fractal dimension
+      ...
+      worst texture
+      worst perimeter
+      worst area
+      worst smoothness
+      worst compactness
+      worst concavity
+      worst concave points
+      worst symmetry
+      worst fractal dimension
+      target
+      count
+      5.690000e+02
+      5.690000e+02
+      5.690000e+02
+      5.690000e+02
+      5.690000e+02
+      5.690000e+02
+      5.690000e+02
+      5.690000e+02
+      5.690000e+02
+      5.690000e+02
+      ...
+      5.690000e+02
+      5.690000e+02
+      569.000000
+      5.690000e+02
+      5.690000e+02
+      5.690000e+02
+      5.690000e+02
+      5.690000e+02
+      5.690000e+02
+      5.690000e+02
+      mean
+      -1.373633e-16
+      6.868164e-17
+      -1.248757e-16
+      -2.185325e-16
+      -8.366672e-16
+      1.873136e-16
+      4.995028e-17
+      -4.995028e-17
+      1.748260e-16
+      4.745277e-16
+      ...
+      1.248757e-17
+      -3.746271e-16
+      0.000000
+      -2.372638e-16
+      -3.371644e-16
+      7.492542e-17
+      2.247763e-16
+      2.622390e-16
+      -5.744282e-16
+      -4.995028e-17
+      std
+      1.000880e+00
+      1.000880e+00
+      1.000880e+00
+      1.000880e+00
+      1.000880e+00
+      1.000880e+00
+      1.000880e+00
+      1.000880e+00
+      1.000880e+00
+      1.000880e+00
+      ...
+      1.000880e+00
+      1.000880e+00
+      1.000880
+      1.000880e+00
+      1.000880e+00
+      1.000880e+00
+      1.000880e+00
+      1.000880e+00
+      1.000880e+00
+      1.000880e+00
+      min
+      -2.029648e+00
+      -2.229249e+00
+      -1.984504e+00
+      -1.454443e+00
+      -3.112085e+00
+      -1.610136e+00
+      -1.114873e+00
+      -1.261820e+00
+      -2.744117e+00
+      -1.819865e+00
+      ...
+      -2.223994e+00
+      -1.693361e+00
+      -1.222423
+      -2.682695e+00
+      -1.443878e+00
+      -1.305831e+00
+      -1.745063e+00
+      -2.160960e+00
+      -1.601839e+00
+      -1.297676e+00
+      25%
+      -6.893853e-01
+      -7.259631e-01
+      -6.919555e-01
+      -6.671955e-01
+      -7.109628e-01
+      -7.470860e-01
+      -7.437479e-01
+      -7.379438e-01
+      -7.032397e-01
+      -7.226392e-01
+      ...
+      -7.486293e-01
+      -6.895783e-01
+      -0.642136
+      -6.912304e-01
+      -6.810833e-01
+      -7.565142e-01
+      -7.563999e-01
+      -6.418637e-01
+      -6.919118e-01
+      -1.297676e+00
+      50%
+      -2.150816e-01
+      -1.046362e-01
+      -2.359800e-01
+      -2.951869e-01
+      -3.489108e-02
+      -2.219405e-01
+      -3.422399e-01
+      -3.977212e-01
+      -7.162650e-02
+      -1.782793e-01
+      ...
+      -4.351564e-02
+      -2.859802e-01
+      -0.341181
+      -4.684277e-02
+      -2.695009e-01
+      -2.182321e-01
+      -2.234689e-01
+      -1.274095e-01
+      -2.164441e-01
+      7.706085e-01
+      75%
+      4.693926e-01
+      5.841756e-01
+      4.996769e-01
+      3.635073e-01
+      6.361990e-01
+      4.938569e-01
+      5.260619e-01
+      6.469351e-01
+      5.307792e-01
+      4.709834e-01
+      ...
+      6.583411e-01
+      5.402790e-01
+      0.357589
+      5.975448e-01
+      5.396688e-01
+      5.311411e-01
+      7.125100e-01
+      4.501382e-01
+      4.507624e-01
+      7.706085e-01
+      max
+      3.971288e+00
+      4.651889e+00
+      3.976130e+00
+      5.250529e+00
+      4.770911e+00
+      4.568425e+00
+      4.243589e+00
+      3.927930e+00
+      4.484751e+00
+      4.910919e+00
+      ...
+      3.885905e+00
+      4.287337e+00
+      5.930172
+      3.955374e+00
+      5.112877e+00
+      4.700669e+00
+      2.685877e+00
+      6.046041e+00
+      6.846856e+00
+      7.706085e-01
+8 rows × 31 columns
