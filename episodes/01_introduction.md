@@ -22,7 +22,6 @@ By the end of this workshop, you will be able to:
 - Apply them using Scikit-Learn, NumPy, Pandas, and Matplotlib
 - Evaluate and optimise models
 
-
 ## Topics Covered
 
 1. Logistic Regression
@@ -41,11 +40,9 @@ We will use the following Python libraries throughout the workshop:
 - `Matplotlib` – data visualisation
 - `Seaborn` - data visualisation
 
-
 ---
 
 Let's get started! 🚀
-
 
 ### Installing Libraries
 
@@ -85,7 +82,6 @@ print("sklearn version:", seaborn.__version__)
     matplotlib version: 3.10.3
     sklearn version: 0.13.2
 
-
 ```python
 import numpy as np
 import pandas as pd
@@ -110,24 +106,6 @@ df['target'] = y
 df.head()
 ```
 
-
-
-
-
-
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-
-
 |   | mean radius | mean texture | mean perimeter | mean area | mean smoothness | mean compactness | mean concavity | mean concave points | mean symmetry | mean fractal dimension | ... | worst texture | worst perimeter | worst area | worst smoothness | worst compactness | worst concavity | worst concave points | worst symmetry | worst fractal dimension | target |
 |---|-------------|--------------|----------------|-----------|-----------------|------------------|----------------|---------------------|---------------|------------------------|-----|---------------|-----------------|------------|------------------|-------------------|-----------------|----------------------|----------------|-------------------------|--------|
 | 0 | 17.99       | 10.38        | 122.80         | 1001.0    | 0.11840         | 0.27760          | 0.3001         | 0.14710             | 0.2419        | 0.07871                | ... | 17.33         | 184.60          | 2019.0     | 0.1622           | 0.6656            | 0.7119          | 0.2654               | 0.4601         | 0.11890                 | 0      |
@@ -138,30 +116,9 @@ df.head()
 
 5 rows × 31 columns
 
-
-
-
 ```python
 df.describe()
 ```
-
-
-
-
-
-
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-
 
 |       | mean radius | mean texture | mean perimeter | mean area   | mean smoothness | mean compactness | mean concavity | mean concave points | mean symmetry | mean fractal dimension | ... | worst texture | worst perimeter | worst area  | worst smoothness | worst compactness | worst concavity | worst concave points | worst symmetry | worst fractal dimension | target     |
 |-------|-------------|--------------|----------------|-------------|-----------------|------------------|----------------|---------------------|---------------|------------------------|-----|---------------|-----------------|-------------|------------------|-------------------|-----------------|----------------------|----------------|-------------------------|------------|
@@ -176,19 +133,12 @@ df.describe()
 
 8 rows × 31 columns
 
-
-
-
 ```python
 df.hist(bins=20, figsize=(15, 10))
 plt.tight_layout()
 ```
 
-
-    
 ![png](output_10_0.png)
-    
-
 
 ```python
 from sklearn.preprocessing import StandardScaler
@@ -198,27 +148,7 @@ scaler = StandardScaler()
 df_scaled = pd.DataFrame(scaler.fit_transform(df), columns=df.columns, index=df.index)
 df_scaled.describe()
 
-
-
 ```
-
-
-
-
-
-
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-
 
 |       | mean radius   | mean texture  | mean perimeter | mean area     | mean smoothness | mean compactness | mean concavity | mean concave points | mean symmetry | mean fractal dimension | ... | worst texture | worst perimeter | worst area | worst smoothness | worst compactness | worst concavity | worst concave points | worst symmetry | worst fractal dimension | target        |
 |-------|---------------|---------------|----------------|---------------|-----------------|------------------|----------------|---------------------|---------------|------------------------|-----|---------------|-----------------|------------|------------------|-------------------|-----------------|----------------------|----------------|-------------------------|---------------|
