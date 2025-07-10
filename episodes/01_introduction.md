@@ -796,3 +796,12 @@ df_scaled.describe()
 </div>
 
 
+
+## Questions
+- *What will participants learn in this section?*
+
+## Objectives
+- *List learning objectives here.*
+
+## Keypoints
+- *List key takeaway points here.*
