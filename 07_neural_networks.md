@@ -648,7 +648,7 @@ plt.title('Neural Network Confusion Matrix')
 plt.show()
 ```
 
-![png](output_9_0.png)
+![png](07_neural_networks/output_9_0.png)
 
 ### What is an ROC Curve?
 
@@ -670,5 +670,5 @@ plt.legend()
 plt.show()
 ```
 
-![png](output_11_0.png)
+![png](07_neural_networks/output_11_0.png)
 

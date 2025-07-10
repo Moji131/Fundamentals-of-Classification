@@ -645,7 +645,7 @@ plt.title('SVM Confusion Matrix')
 plt.show()
 ```
 
-![png](output_9_0.png)
+![png](09_random_forest/output_9_0.png)
 
 ### What is an ROC Curve?
 
@@ -666,5 +666,5 @@ plt.legend()
 plt.show()
 ```
 
-![png](output_11_0.png)
+![png](09_random_forest/output_11_0.png)
 

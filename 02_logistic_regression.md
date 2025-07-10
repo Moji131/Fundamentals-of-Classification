@@ -671,7 +671,7 @@ plt.title('Confusion Matrix')
 plt.show()
 ```
 
-![png](output_10_0.png)
+![png](02_logistic_regression/output_10_0.png)
 
 ### What is an ROC Curve?
 
@@ -700,5 +700,5 @@ plt.legend()
 plt.show()
 ```
 
-![png](output_12_0.png)
+![png](02_logistic_regression/output_12_0.png)
 

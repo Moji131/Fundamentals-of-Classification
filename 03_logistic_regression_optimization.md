@@ -83,7 +83,7 @@ plt.xticks(rotation=90, ha='right')
 plt.show()
 ```
 
-![png](output_6_0.png)
+![png](03_logistic_regression_optimization/output_6_0.png)
 
 ## Step 4: Explore Effect of `penalty` (L1, L2 Regularization)
 
@@ -115,7 +115,7 @@ plt.xticks(rotation=90, ha='right')
 plt.show()
 ```
 
-![png](output_8_0.png)
+![png](03_logistic_regression_optimization/output_8_0.png)
 
 ## Step 5: Explore Effect of `max_iter`
 
@@ -159,7 +159,7 @@ plt.show()
     C:\Users\moji1\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\sklearn\svm\_base.py:1250: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
       warnings.warn(
 
-![png](output_10_1.png)
+![png](03_logistic_regression_optimization/output_10_1.png)
 
 ## Changing the Classification Threshold
 
@@ -199,5 +199,5 @@ plt.tight_layout()
 plt.show()
 ```
 
-![png](output_12_0.png)
+![png](03_logistic_regression_optimization/output_12_0.png)
 

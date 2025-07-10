@@ -669,7 +669,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-![png](output_11_0.png)
+![png](06_model_evaluation/output_11_0.png)
 
 ### What is the ROC Curve?
 
@@ -701,7 +701,7 @@ plt.legend()
 plt.show()
 ```
 
-![png](output_13_0.png)
+![png](06_model_evaluation/output_13_0.png)
 
 ## Conclusion
 
