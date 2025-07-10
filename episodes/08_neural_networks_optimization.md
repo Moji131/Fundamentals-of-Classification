@@ -117,7 +117,7 @@ plt.xticks(rotation=90, ha='right')
 plt.show()
 ```
 
-![png](output_9_0.png)
+![png](08_neural_networks_optimization/output_9_0.png)
 
 ## Step 4: Explore Effect of `alpha` (L2 Regularization)
 
@@ -145,7 +145,7 @@ plt.grid(True)
 plt.show()
 ```
 
-![png](output_11_0.png)
+![png](08_neural_networks_optimization/output_11_0.png)
 
 ## Step 5: Explore Effect of `learning_rate_init`
 
@@ -174,7 +174,7 @@ plt.grid(True)
 plt.show()
 ```
 
-![png](output_13_0.png)
+![png](08_neural_networks_optimization/output_13_0.png)
 
 ## Conclusion
 
@@ -226,5 +226,5 @@ plt.show()
     C:\Users\moji1\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\sklearn\neural_network\_multilayer_perceptron.py:780: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
       warnings.warn(
 
-![png](output_16_1.png)
+![png](08_neural_networks_optimization/output_16_1.png)
 

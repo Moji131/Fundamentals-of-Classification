@@ -80,7 +80,7 @@ plt.show()
 
 ```
 
-![png](output_4_0.png)
+![png](05_svm_optimization/output_4_0.png)
 
 ## Exploring the Effect of the `gamma` Hyperparameter
 
@@ -117,7 +117,7 @@ plt.show()
 
 ```
 
-![png](output_6_0.png)
+![png](05_svm_optimization/output_6_0.png)
 
 ## Exploring the Effect of the `kernel` Hyperparameter
 
@@ -169,7 +169,7 @@ plt.show()
     Kernel: rbf → Train Accuracy: 0.985, Test Accuracy: 0.977
     Kernel: poly → Train Accuracy: 0.910, Test Accuracy: 0.883
 
-![png](output_8_1.png)
+![png](05_svm_optimization/output_8_1.png)
 
 ## Changing the Classification Threshold
 
@@ -210,5 +210,5 @@ plt.show()
 
 ```
 
-![png](output_10_0.png)
+![png](05_svm_optimization/output_10_0.png)
 

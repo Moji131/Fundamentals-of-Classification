@@ -80,7 +80,7 @@ plt.show()
 
 ```
 
-![png](output_4_0.png)
+![png](10_random_forest_optimization/output_4_0.png)
 
 ## Exploring the Effect of the `max_depth` Hyperparameter
 
@@ -117,7 +117,7 @@ plt.show()
 
 ```
 
-![png](output_6_0.png)
+![png](10_random_forest_optimization/output_6_0.png)
 
 ## Exploring the Effect of the `min_samples_split` Hyperparameter
 
@@ -181,7 +181,7 @@ plt.show()
     min_samples_split: 20 → Train Accuracy: 0.972, Test Accuracy: 0.947
     min_samples_split: 50 → Train Accuracy: 0.972, Test Accuracy: 0.942
 
-![png](output_8_1.png)
+![png](10_random_forest_optimization/output_8_1.png)
 
 ## Changing the Classification Threshold
 
@@ -222,5 +222,5 @@ plt.show()
 
 ```
 
-![png](output_10_0.png)
+![png](10_random_forest_optimization/output_10_0.png)
 

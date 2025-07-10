@@ -1,5 +1,5 @@
 ---
-title: "01 Introduction to Classification"
+title: "Introduction to Classification"
 teaching: 10
 exercises: 0
 ---
@@ -138,7 +138,7 @@ df.hist(bins=20, figsize=(15, 10))
 plt.tight_layout()
 ```
 
-![png](output_10_0.png)
+![png](01_introduction/output_10_0.png)
 
 ```python
 from sklearn.preprocessing import StandardScaler
