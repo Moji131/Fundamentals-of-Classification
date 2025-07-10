@@ -1,28 +1,20 @@
 ---
-title: "02 Logistic Regression"
+title: "04 Svm"
 teaching: 10
 exercises: 5
 ---
 
-# Logistic Regression with Breast Cancer Dataset
+# Support Vector Machine (SVM) with Breast Cancer Dataset
 
-This notebook demonstrates how to use **Logistic Regression**, a fundamental classification algorithm, to predict whether a tumor is malignant or benign using the Breast Cancer Wisconsin dataset.
+This notebook demonstrates the use of **Support Vector Machines (SVM)** for classifying tumors in the Breast Cancer dataset.
 
-## What is Logistic Regression?
+## What is an SVM?
 
-Logistic Regression is a **supervised learning** algorithm used for **binary classification**.
+Support Vector Machines are powerful supervised learning models for classification. An SVM finds the **hyperplane** that best separates data points from two classes.
 
-It models the probability that an input $\mathbf{x}$ belongs to class $y=1$ using the **logistic (sigmoid)** function:
+It maximizes the **margin**, which is the distance between the hyperplane and the nearest points from each class (support vectors).
 
-$$
-P(y=1 | \mathbf{x}) = \frac{1}{1 + e^{- (\mathbf{w}^T \mathbf{x} + b)}}
-$$
-
-The output is a probability between 0 and 1. We classify an observation as class `1` if the predicted probability exceeds a threshold (typically 0.5).
-
-## Step 1: Load and Explore the Data
-
-We use the `load_breast_cancer()` dataset from Scikit-Learn. It includes 30 numeric features extracted from breast mass images.
+## Step 1: Load the Breast Cancer Dataset
 
 ```python
 from sklearn.datasets import load_breast_cancer
@@ -46,14 +38,14 @@ X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
 ```
 
-## Step 3: Split the Data and Train the Model
+## Step 3: Train an SVM Model
 
-We split the dataset into training and testing sets, and fit a logistic regression model.
+We use the `SVC` class from `sklearn.svm` with default kernel (RBF).
 
 ```python
-from sklearn.linear_model import LogisticRegression
+from sklearn.svm import SVC
 
-model = LogisticRegression(max_iter=5000)
+model = SVC(probability=True)
 model.fit(X_train, y_train)
 ```
 
@@ -533,26 +525,26 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
     height: 14px;
     cursor: pointer;
 }
-LogisticRegression(max_iter=5000)In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.LogisticRegression?Documentation for LogisticRegressioniFitted
+SVC(probability=True)In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.SVC?Documentation for SVCiFitted
 
 Parameters
 
-|  | penalty           | 'l2'         |
-|--|-------------------|--------------|
-|  | dual              | False        |
-|  | tol               | 0.0001       |
-|  | C                 | 1.0          |
-|  | fit_intercept     | True         |
-|  | intercept_scaling | 1            |
-|  | class_weight      | None         |
-|  | random_state      | None         |
-|  | solver            | 'lbfgs'      |
-|  | max_iter          | 5000         |
-|  | multi_class       | 'deprecated' |
-|  | verbose           | 0            |
-|  | warm_start        | False        |
-|  | n_jobs            | None         |
-|  | l1_ratio          | None         |
+|  | C                       | 1.0     |
+|--|-------------------------|---------|
+|  | kernel                  | 'rbf'   |
+|  | degree                  | 3       |
+|  | gamma                   | 'scale' |
+|  | coef0                   | 0.0     |
+|  | shrinking               | True    |
+|  | probability             | True    |
+|  | tol                     | 0.001   |
+|  | cache_size              | 200     |
+|  | class_weight            | None    |
+|  | verbose                 | False   |
+|  | max_iter                | -1      |
+|  | decision_function_shape | 'ovr'   |
+|  | break_ties              | False   |
+|  | random_state            | None    |
 
 function copyToClipboard(text, element) {
     // Get the parameter prefix from the closest toggleable content
@@ -599,30 +591,10 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 
 ## Step 4: Evaluate the Model
 
-We will evaluate our model using the following metrics:
-
-- **Accuracy**: Proportion of correct predictions
-- **Precision**: Proportion of positive predictions that are correct
-- **Recall (Sensitivity)**: Proportion of actual positives correctly identified
-- **F1 Score**: Harmonic mean of precision and recall
-- **Confusion Matrix**: Table showing true vs. predicted labels
-- **ROC Curve**: Tradeoff between true positive and false positive rates
-- **AUC (Area Under Curve)**: Summary of ROC curve performance
-
-## Step 4: Evaluate the Model
-
-**Metrics Used:**
-- Accuracy
-- Precision
-- Recall
-- F1-score
-- Confusion Matrix
-- ROC Curve and AUC
-
 ```python
 from sklearn.metrics import (
-    classification_report,
-    roc_curve, auc, accuracy_score, precision_score, recall_score, f1_score
+    accuracy_score, precision_score, recall_score, f1_score,
+    ConfusionMatrixDisplay, classification_report, roc_curve, auc
 )
 
 y_pred = model.predict(X_test)
@@ -634,57 +606,46 @@ print("\nClassification Report:\n", classification_report(y_test, y_pred))
 ```
 
     Accuracy: 0.9766081871345029
-    Precision: 0.981651376146789
-    Recall: 0.981651376146789
-    F1 Score: 0.981651376146789
+    Precision: 0.972972972972973
+    Recall: 0.9908256880733946
+    F1 Score: 0.9818181818181818
 
     Classification Report:
                    precision    recall  f1-score   support
 
-               0       0.97      0.97      0.97        62
-               1       0.98      0.98      0.98       109
+               0       0.98      0.95      0.97        62
+               1       0.97      0.99      0.98       109
 
         accuracy                           0.98       171
-       macro avg       0.97      0.97      0.97       171
+       macro avg       0.98      0.97      0.97       171
     weighted avg       0.98      0.98      0.98       171
 
 ### What is a Confusion Matrix?
 
-A **confusion matrix** is a table used to describe the performance of a classification model. For binary classification:
+A **confusion matrix** is a summary of prediction results:
 
 |                 | Predicted Positive | Predicted Negative |
 |-----------------|--------------------|--------------------|
 | Actual Positive | True Positive (TP) | False Negative (FN)|
 | Actual Negative | False Positive (FP)| True Negative (TN) |
 
-- **Accuracy** = (TP + TN) / (TP + TN + FP + FN)  
-- **Precision** = TP / (TP + FP)  
-- **Recall (Sensitivity)** = TP / (TP + FN)  
-- **F1 Score** = 2 * (Precision * Recall) / (Precision + Recall)
+- Accuracy, Precision, Recall, F1 Score are all derived from this table.
 
 ```python
 import matplotlib.pyplot as plt
-from sklearn.metrics import ConfusionMatrixDisplay
+import seaborn as sns
 
 ConfusionMatrixDisplay.from_estimator(model, X_test, y_test)
-plt.title('Confusion Matrix')
+plt.title('SVM Confusion Matrix')
 plt.show()
 ```
 
-![png](output_10_0.png)
+![png](output_9_0.png)
 
 ### What is an ROC Curve?
 
-An **ROC Curve** (Receiver Operating Characteristic) plots:
-
-- **True Positive Rate (Recall)** on the Y-axis
-- **False Positive Rate (1 - Specificity)** on the X-axis
-
-Each point on the curve corresponds to a different classification threshold. A model with perfect classification has a point in the top-left corner.
-
-**AUC (Area Under Curve)** summarizes the ROC curve into a single value between 0 and 1:
-- AUC = 1: Perfect classifier
-- AUC = 0.5: No better than random guessing
+The **ROC Curve** shows the trade-off between True Positive Rate (Recall) and False Positive Rate.
+The **AUC (Area Under Curve)** summarizes the performance into a single number.
 
 ```python
 y_proba = model.predict_proba(X_test)[:, 1]
@@ -695,10 +656,10 @@ plt.plot(fpr, tpr, label='AUC = ' + str(round(roc_auc, 2)))
 plt.plot([0, 1], [0, 1], 'k--')
 plt.xlabel('False Positive Rate')
 plt.ylabel('True Positive Rate')
-plt.title('ROC Curve')
+plt.title('SVM ROC Curve')
 plt.legend()
 plt.show()
 ```
 
-![png](output_12_0.png)
+![png](output_11_0.png)
 

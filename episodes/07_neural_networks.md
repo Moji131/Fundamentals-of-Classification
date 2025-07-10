@@ -1,28 +1,20 @@
 ---
-title: "02 Logistic Regression"
+title: "07 Neural Networks"
 teaching: 10
 exercises: 5
 ---
 
-# Logistic Regression with Breast Cancer Dataset
+# Neural Network (MLPClassifier) with Breast Cancer Dataset
 
-This notebook demonstrates how to use **Logistic Regression**, a fundamental classification algorithm, to predict whether a tumor is malignant or benign using the Breast Cancer Wisconsin dataset.
+In this notebook, we will use a simple **Multi-layer Perceptron (MLP)** neural network to classify breast tumors.
 
-## What is Logistic Regression?
+## What is an MLP?
 
-Logistic Regression is a **supervised learning** algorithm used for **binary classification**.
+An **MLP** is a type of **feedforward neural network** consisting of one or more hidden layers. Each neuron computes a weighted sum of its inputs and passes the result through a nonlinear activation function.
 
-It models the probability that an input $\mathbf{x}$ belongs to class $y=1$ using the **logistic (sigmoid)** function:
+MLPs are suitable for classification tasks and are trained using **backpropagation** to minimize loss.
 
-$$
-P(y=1 | \mathbf{x}) = \frac{1}{1 + e^{- (\mathbf{w}^T \mathbf{x} + b)}}
-$$
-
-The output is a probability between 0 and 1. We classify an observation as class `1` if the predicted probability exceeds a threshold (typically 0.5).
-
-## Step 1: Load and Explore the Data
-
-We use the `load_breast_cancer()` dataset from Scikit-Learn. It includes 30 numeric features extracted from breast mass images.
+## Step 1: Load the Breast Cancer Dataset
 
 ```python
 from sklearn.datasets import load_breast_cancer
@@ -46,14 +38,14 @@ X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
 ```
 
-## Step 3: Split the Data and Train the Model
+## Step 3: Train an MLPClassifier
 
-We split the dataset into training and testing sets, and fit a logistic regression model.
+We use `MLPClassifier` from Scikit-Learn with one hidden layer.
 
 ```python
-from sklearn.linear_model import LogisticRegression
+from sklearn.neural_network import MLPClassifier
 
-model = LogisticRegression(max_iter=5000)
+model = MLPClassifier(hidden_layer_sizes=(50,), max_iter=2000, random_state=42)
 model.fit(X_train, y_train)
 ```
 
@@ -533,26 +525,34 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
     height: 14px;
     cursor: pointer;
 }
-LogisticRegression(max_iter=5000)In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.LogisticRegression?Documentation for LogisticRegressioniFitted
+MLPClassifier(hidden_layer_sizes=(50,), max_iter=2000, random_state=42)In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.MLPClassifier?Documentation for MLPClassifieriFitted
 
 Parameters
 
-|  | penalty           | 'l2'         |
-|--|-------------------|--------------|
-|  | dual              | False        |
-|  | tol               | 0.0001       |
-|  | C                 | 1.0          |
-|  | fit_intercept     | True         |
-|  | intercept_scaling | 1            |
-|  | class_weight      | None         |
-|  | random_state      | None         |
-|  | solver            | 'lbfgs'      |
-|  | max_iter          | 5000         |
-|  | multi_class       | 'deprecated' |
-|  | verbose           | 0            |
-|  | warm_start        | False        |
-|  | n_jobs            | None         |
-|  | l1_ratio          | None         |
+|  | hidden_layer_sizes  | (50,)      |
+|--|---------------------|------------|
+|  | activation          | 'relu'     |
+|  | solver              | 'adam'     |
+|  | alpha               | 0.0001     |
+|  | batch_size          | 'auto'     |
+|  | learning_rate       | 'constant' |
+|  | learning_rate_init  | 0.001      |
+|  | power_t             | 0.5        |
+|  | max_iter            | 2000       |
+|  | shuffle             | True       |
+|  | random_state        | 42         |
+|  | tol                 | 0.0001     |
+|  | verbose             | False      |
+|  | warm_start          | False      |
+|  | momentum            | 0.9        |
+|  | nesterovs_momentum  | True       |
+|  | early_stopping      | False      |
+|  | validation_fraction | 0.1        |
+|  | beta_1              | 0.9        |
+|  | beta_2              | 0.999      |
+|  | epsilon             | 1e-08      |
+|  | n_iter_no_change    | 10         |
+|  | max_fun             | 15000      |
 
 function copyToClipboard(text, element) {
     // Get the parameter prefix from the closest toggleable content
@@ -599,30 +599,10 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 
 ## Step 4: Evaluate the Model
 
-We will evaluate our model using the following metrics:
-
-- **Accuracy**: Proportion of correct predictions
-- **Precision**: Proportion of positive predictions that are correct
-- **Recall (Sensitivity)**: Proportion of actual positives correctly identified
-- **F1 Score**: Harmonic mean of precision and recall
-- **Confusion Matrix**: Table showing true vs. predicted labels
-- **ROC Curve**: Tradeoff between true positive and false positive rates
-- **AUC (Area Under Curve)**: Summary of ROC curve performance
-
-## Step 4: Evaluate the Model
-
-**Metrics Used:**
-- Accuracy
-- Precision
-- Recall
-- F1-score
-- Confusion Matrix
-- ROC Curve and AUC
-
 ```python
 from sklearn.metrics import (
-    classification_report,
-    roc_curve, auc, accuracy_score, precision_score, recall_score, f1_score
+    accuracy_score, precision_score, recall_score, f1_score,
+    ConfusionMatrixDisplay, classification_report, roc_curve, auc
 )
 
 y_pred = model.predict(X_test)
@@ -633,58 +613,48 @@ print("F1 Score:", f1_score(y_test, y_pred))
 print("\nClassification Report:\n", classification_report(y_test, y_pred))
 ```
 
-    Accuracy: 0.9766081871345029
-    Precision: 0.981651376146789
-    Recall: 0.981651376146789
-    F1 Score: 0.981651376146789
+    Accuracy: 0.9824561403508771
+    Precision: 0.9732142857142857
+    Recall: 1.0
+    F1 Score: 0.9864253393665159
 
     Classification Report:
                    precision    recall  f1-score   support
 
-               0       0.97      0.97      0.97        62
-               1       0.98      0.98      0.98       109
+               0       1.00      0.95      0.98        62
+               1       0.97      1.00      0.99       109
 
         accuracy                           0.98       171
-       macro avg       0.97      0.97      0.97       171
+       macro avg       0.99      0.98      0.98       171
     weighted avg       0.98      0.98      0.98       171
 
 ### What is a Confusion Matrix?
 
-A **confusion matrix** is a table used to describe the performance of a classification model. For binary classification:
+A **confusion matrix** shows how well the model distinguishes between classes:
 
 |                 | Predicted Positive | Predicted Negative |
 |-----------------|--------------------|--------------------|
 | Actual Positive | True Positive (TP) | False Negative (FN)|
 | Actual Negative | False Positive (FP)| True Negative (TN) |
 
-- **Accuracy** = (TP + TN) / (TP + TN + FP + FN)  
-- **Precision** = TP / (TP + FP)  
-- **Recall (Sensitivity)** = TP / (TP + FN)  
-- **F1 Score** = 2 * (Precision * Recall) / (Precision + Recall)
+This matrix lets us compute metrics like accuracy, precision, recall, and F1 score.
 
 ```python
 import matplotlib.pyplot as plt
-from sklearn.metrics import ConfusionMatrixDisplay
+import seaborn as sns
 
 ConfusionMatrixDisplay.from_estimator(model, X_test, y_test)
-plt.title('Confusion Matrix')
+plt.title('Neural Network Confusion Matrix')
 plt.show()
 ```
 
-![png](output_10_0.png)
+![png](output_9_0.png)
 
 ### What is an ROC Curve?
 
-An **ROC Curve** (Receiver Operating Characteristic) plots:
-
-- **True Positive Rate (Recall)** on the Y-axis
-- **False Positive Rate (1 - Specificity)** on the X-axis
-
-Each point on the curve corresponds to a different classification threshold. A model with perfect classification has a point in the top-left corner.
-
-**AUC (Area Under Curve)** summarizes the ROC curve into a single value between 0 and 1:
-- AUC = 1: Perfect classifier
-- AUC = 0.5: No better than random guessing
+The **ROC Curve** shows the trade-off between True Positive Rate and False Positive Rate.
+**AUC** quantifies this performance.
+Closer to 1.0 = better classifier.
 
 ```python
 y_proba = model.predict_proba(X_test)[:, 1]
@@ -695,10 +665,10 @@ plt.plot(fpr, tpr, label='AUC = ' + str(round(roc_auc, 2)))
 plt.plot([0, 1], [0, 1], 'k--')
 plt.xlabel('False Positive Rate')
 plt.ylabel('True Positive Rate')
-plt.title('ROC Curve')
+plt.title('Neural Network ROC Curve')
 plt.legend()
 plt.show()
 ```
 
-![png](output_12_0.png)
+![png](output_11_0.png)
 

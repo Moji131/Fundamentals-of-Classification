@@ -1,28 +1,18 @@
 ---
-title: "02 Logistic Regression"
+title: "06 Model Evaluation"
 teaching: 10
 exercises: 5
 ---
 
-# Logistic Regression with Breast Cancer Dataset
+# Model Evaluation: Comparing Logistic Regression and SVM
 
-This notebook demonstrates how to use **Logistic Regression**, a fundamental classification algorithm, to predict whether a tumor is malignant or benign using the Breast Cancer Wisconsin dataset.
+We compare two classifiers:
+- **Logistic Regression**
+- **SVM**
 
-## What is Logistic Regression?
+Using metrics: Accuracy, Precision, Recall, F1 Score, Confusion Matrix, and ROC-AUC.
 
-Logistic Regression is a **supervised learning** algorithm used for **binary classification**.
-
-It models the probability that an input $\mathbf{x}$ belongs to class $y=1$ using the **logistic (sigmoid)** function:
-
-$$
-P(y=1 | \mathbf{x}) = \frac{1}{1 + e^{- (\mathbf{w}^T \mathbf{x} + b)}}
-$$
-
-The output is a probability between 0 and 1. We classify an observation as class `1` if the predicted probability exceeds a threshold (typically 0.5).
-
-## Step 1: Load and Explore the Data
-
-We use the `load_breast_cancer()` dataset from Scikit-Learn. It includes 30 numeric features extracted from breast mass images.
+## Step 1: Load the Data
 
 ```python
 from sklearn.datasets import load_breast_cancer
@@ -46,15 +36,18 @@ X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
 ```
 
-## Step 3: Split the Data and Train the Model
-
-We split the dataset into training and testing sets, and fit a logistic regression model.
+## Step 2: Train the Models
 
 ```python
 from sklearn.linear_model import LogisticRegression
+from sklearn.svm import SVC
 
-model = LogisticRegression(max_iter=5000)
-model.fit(X_train, y_train)
+lr_model = LogisticRegression(max_iter=5000)
+lr_model.fit(X_train, y_train)
+
+svm_model = SVC(probability=True)
+svm_model.fit(X_train, y_train)
+
 ```
 
 #sk-container-id-1 {
@@ -533,26 +526,26 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
     height: 14px;
     cursor: pointer;
 }
-LogisticRegression(max_iter=5000)In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.LogisticRegression?Documentation for LogisticRegressioniFitted
+SVC(probability=True)In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.SVC?Documentation for SVCiFitted
 
 Parameters
 
-|  | penalty           | 'l2'         |
-|--|-------------------|--------------|
-|  | dual              | False        |
-|  | tol               | 0.0001       |
-|  | C                 | 1.0          |
-|  | fit_intercept     | True         |
-|  | intercept_scaling | 1            |
-|  | class_weight      | None         |
-|  | random_state      | None         |
-|  | solver            | 'lbfgs'      |
-|  | max_iter          | 5000         |
-|  | multi_class       | 'deprecated' |
-|  | verbose           | 0            |
-|  | warm_start        | False        |
-|  | n_jobs            | None         |
-|  | l1_ratio          | None         |
+|  | C                       | 1.0     |
+|--|-------------------------|---------|
+|  | kernel                  | 'rbf'   |
+|  | degree                  | 3       |
+|  | gamma                   | 'scale' |
+|  | coef0                   | 0.0     |
+|  | shrinking               | True    |
+|  | probability             | True    |
+|  | tol                     | 0.001   |
+|  | cache_size              | 200     |
+|  | class_weight            | None    |
+|  | verbose                 | False   |
+|  | max_iter                | -1      |
+|  | decision_function_shape | 'ovr'   |
+|  | break_ties              | False   |
+|  | random_state            | None    |
 
 function copyToClipboard(text, element) {
     // Get the parameter prefix from the closest toggleable content
@@ -597,108 +590,124 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
     element.setAttribute('title', fullParamName);
 });
 
-## Step 4: Evaluate the Model
+## Step 3: Evaluation Metrics
 
-We will evaluate our model using the following metrics:
+### What is Accuracy?
 
-- **Accuracy**: Proportion of correct predictions
-- **Precision**: Proportion of positive predictions that are correct
-- **Recall (Sensitivity)**: Proportion of actual positives correctly identified
-- **F1 Score**: Harmonic mean of precision and recall
-- **Confusion Matrix**: Table showing true vs. predicted labels
-- **ROC Curve**: Tradeoff between true positive and false positive rates
-- **AUC (Area Under Curve)**: Summary of ROC curve performance
+**Accuracy** is the proportion of correct predictions:
 
-## Step 4: Evaluate the Model
+$$
+\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}
+$$
 
-**Metrics Used:**
-- Accuracy
-- Precision
-- Recall
-- F1-score
-- Confusion Matrix
-- ROC Curve and AUC
+Can be misleading if classes are imbalanced.
 
 ```python
-from sklearn.metrics import (
-    classification_report,
-    roc_curve, auc, accuracy_score, precision_score, recall_score, f1_score
-)
+from sklearn.metrics import accuracy_score
 
-y_pred = model.predict(X_test)
-print("Accuracy:", accuracy_score(y_test, y_pred))
-print("Precision:", precision_score(y_test, y_pred))
-print("Recall:", recall_score(y_test, y_pred))
-print("F1 Score:", f1_score(y_test, y_pred))
-print("\nClassification Report:\n", classification_report(y_test, y_pred))
+lr_acc = accuracy_score(y_test, lr_model.predict(X_test))
+svm_acc = accuracy_score(y_test, svm_model.predict(X_test))
+
+print(f"Logistic egression Accuracy: {lr_acc:.2f}")
+print(f"SVM Accuracy: {svm_acc:.2f}")
+
 ```
 
-    Accuracy: 0.9766081871345029
-    Precision: 0.981651376146789
-    Recall: 0.981651376146789
-    F1 Score: 0.981651376146789
+    Logistic egression Accuracy: 0.98
+    SVM Accuracy: 0.98
 
-    Classification Report:
-                   precision    recall  f1-score   support
+### What are Precision, Recall and F1 Score?
 
-               0       0.97      0.97      0.97        62
-               1       0.98      0.98      0.98       109
+- **Precision**: $\frac{TP}{TP + FP}$  
+- **Recall**: $\frac{TP}{TP + FN}$  
+- **F1 Score**: Harmonic mean of precision and recall  
 
-        accuracy                           0.98       171
-       macro avg       0.97      0.97      0.97       171
-    weighted avg       0.98      0.98      0.98       171
+$$
+F1 = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
+$$
+
+```python
+from sklearn.metrics import precision_score, recall_score, f1_score
+
+for name, model in [("SVM", svm_model), ("Neural Net", lr_model)]:
+    y_pred = model.predict(X_test)
+    print(f"\n{name} Metrics:")
+    print(f"Precision: {precision_score(y_test, y_pred):.2f}")
+    print(f"Recall: {recall_score(y_test, y_pred):.2f}")
+    print(f"F1 Score: {f1_score(y_test, y_pred):.2f}")
+```
+
+    SVM Metrics:
+    Precision: 0.97
+    Recall: 0.99
+    F1 Score: 0.98
+
+    Neural Net Metrics:
+    Precision: 0.98
+    Recall: 0.98
+    F1 Score: 0.98
 
 ### What is a Confusion Matrix?
 
-A **confusion matrix** is a table used to describe the performance of a classification model. For binary classification:
+A **confusion matrix** shows the breakdown of correct and incorrect classifications.
 
 |                 | Predicted Positive | Predicted Negative |
 |-----------------|--------------------|--------------------|
 | Actual Positive | True Positive (TP) | False Negative (FN)|
 | Actual Negative | False Positive (FP)| True Negative (TN) |
 
-- **Accuracy** = (TP + TN) / (TP + TN + FP + FN)  
-- **Precision** = TP / (TP + FP)  
-- **Recall (Sensitivity)** = TP / (TP + FN)  
-- **F1 Score** = 2 * (Precision * Recall) / (Precision + Recall)
-
 ```python
-import matplotlib.pyplot as plt
 from sklearn.metrics import ConfusionMatrixDisplay
+import matplotlib.pyplot as plt
 
-ConfusionMatrixDisplay.from_estimator(model, X_test, y_test)
-plt.title('Confusion Matrix')
+fig, axs = plt.subplots(1, 2, figsize=(12, 5))
+ConfusionMatrixDisplay.from_estimator(svm_model, X_test, y_test, ax=axs[0])
+axs[0].set_title("SVM Confusion Matrix")
+ConfusionMatrixDisplay.from_estimator(lr_model, X_test, y_test, ax=axs[1])
+axs[1].set_title("Neural Network Confusion Matrix")
+plt.tight_layout()
 plt.show()
 ```
 
-![png](output_10_0.png)
+![png](output_11_0.png)
 
-### What is an ROC Curve?
+### What is the ROC Curve?
 
-An **ROC Curve** (Receiver Operating Characteristic) plots:
+ROC = Receiver Operating Characteristic Curve
 
-- **True Positive Rate (Recall)** on the Y-axis
-- **False Positive Rate (1 - Specificity)** on the X-axis
-
-Each point on the curve corresponds to a different classification threshold. A model with perfect classification has a point in the top-left corner.
-
-**AUC (Area Under Curve)** summarizes the ROC curve into a single value between 0 and 1:
-- AUC = 1: Perfect classifier
-- AUC = 0.5: No better than random guessing
+- Plots TPR vs FPR
+- **AUC** = Area Under the ROC Curve
+Closer to 1 = better model.
 
 ```python
-y_proba = model.predict_proba(X_test)[:, 1]
-fpr, tpr, _ = roc_curve(y_test, y_proba)
-roc_auc = auc(fpr, tpr)
+from sklearn.metrics import roc_curve, auc
 
-plt.plot(fpr, tpr, label='AUC = ' + str(round(roc_auc, 2)))
+svm_probs = svm_model.predict_proba(X_test)[:, 1]
+nn_probs = lr_model.predict_proba(X_test)[:, 1]
+
+svm_fpr, svm_tpr, _ = roc_curve(y_test, svm_probs)
+nn_fpr, nn_tpr, _ = roc_curve(y_test, nn_probs)
+svm_auc = auc(svm_fpr, svm_tpr)
+nn_auc = auc(nn_fpr, nn_tpr)
+
+plt.figure(figsize=(8, 6))
+plt.plot(svm_fpr, svm_tpr, label=f"SVM (AUC = {svm_auc:.2f})")
+plt.plot(nn_fpr, nn_tpr, label=f"Logistic Regression (AUC = {nn_auc:.2f})")
 plt.plot([0, 1], [0, 1], 'k--')
-plt.xlabel('False Positive Rate')
-plt.ylabel('True Positive Rate')
-plt.title('ROC Curve')
+plt.xlabel("False Positive Rate")
+plt.ylabel("True Positive Rate")
+plt.title("ROC Curve")
 plt.legend()
 plt.show()
 ```
 
-![png](output_12_0.png)
+![png](output_13_0.png)
 
+## Conclusion
+
+Both models perform well, but:
+
+- **Neural Net** may achieve higher recall
+- **SVM** may offer higher precision
+
+Evaluation metrics guide us to choose the best model for our real-world use case.
