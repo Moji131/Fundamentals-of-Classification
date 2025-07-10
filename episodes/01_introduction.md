@@ -45,7 +45,6 @@ Let's get started! 🚀
 
 Uncomment and run the commands below only if packages are not installed. 
 
-
 ```python
 # !pip install numpy
 # !pip install pandas
@@ -56,7 +55,6 @@ Uncomment and run the commands below only if packages are not installed.
 ```
 
 ### Check your environment has the necessary libraries installed
-
 
 ```python
 import numpy
@@ -80,7 +78,6 @@ print("sklearn version:", seaborn.__version__)
     sklearn version: 1.7.0
     matplotlib version: 3.10.3
     sklearn version: 0.13.2
-    
 
 
 ```python
@@ -93,7 +90,6 @@ from sklearn import datasets
 
 ### Preview Example Dataset
 We use the `load_breast_cancer()` dataset from Scikit-Learn. It includes 30 numeric features extracted from breast mass images.
-
 
 ```python
 from sklearn.datasets import load_breast_cancer
@@ -277,7 +273,6 @@ df.head()
 </table>
 <p>5 rows × 31 columns</p>
 </div>
-
 
 
 
@@ -529,7 +524,6 @@ df.describe()
 
 
 
-
 ```python
 df.hist(bins=20, figsize=(15, 10))
 plt.tight_layout()
@@ -539,7 +533,6 @@ plt.tight_layout()
     
 ![png](output_10_0.png)
     
-
 
 
 ```python
