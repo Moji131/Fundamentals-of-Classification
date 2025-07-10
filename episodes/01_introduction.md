@@ -1,5 +1,5 @@
 ---
-title: "Introduction to Classification"
+title: "01 Introduction to Classification"
 teaching: 10
 exercises: 0
 ---
