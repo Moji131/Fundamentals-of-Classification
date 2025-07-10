@@ -68,12 +68,14 @@ contact: 'training@qcif.edu.au' # FIXME
 episodes: 
 - 01_introduction.md
 - 02_logistic_regression.md
-- 03_svm.md
-- 04_neural_network.md
-- 05_model_evaluation.md
-- 06_model_optimization.md
-
-
+- 03_logistic_regression_optimization.md
+- 04_svm.md
+- 05_svm_optimization.md
+- 06_model_evaluation.md
+- 07_neural_networks.md
+- 08_neural_networks_optimization.md
+- 09_random_forest.md
+- 10_random_forest_optimization.md
 
 # Information for Learners
 learners: 
