@@ -1,7 +1,7 @@
 ---
-title: "Introduction to Classification"
+title: "01 Introduction"
 teaching: 10
-exercises: 0
+exercises: 5
 ---
 
 # Introduction to Classification
