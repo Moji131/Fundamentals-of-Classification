@@ -441,13 +441,13 @@ underfit.</p>
 <div class="section level2">
 <h2 id="step-4-explore-effect-of-penalty-l1-l2-regularization">Step 4: Explore Effect of <code>penalty</code> (L1, L2
 Regularization)<a class="anchor" aria-label="anchor" href="#step-4-explore-effect-of-penalty-l1-l2-regularization"></a></h2>
-<table class="table"><colgroup><col width="7%"><col width="30%"><col width="62%"></colgroup><thead><tr class="header"><th>Penalty</th>
+<table class="table"><colgroup><col width="7%"><col width="30%"><col width="62%"></colgroup><thead><tr><th>Penalty</th>
 <th>Key Effect</th>
 <th>When to Use</th>
-</tr></thead><tbody><tr class="odd"><td>L1</td>
+</tr></thead><tbody><tr><td>L1</td>
 <td>Sparsity, feature selection</td>
 <td>You want simpler models or auto-feature selection</td>
-</tr><tr class="even"><td>L2</td>
+</tr><tr><td>L2</td>
 <td>Shrinkage, no sparsity</td>
 <td>You want to reduce overfitting without dropping features</td>
 </tr></tbody></table><div class="codewrapper sourceCode" id="cb4">
@@ -479,17 +479,17 @@ Regularization)<a class="anchor" aria-label="anchor" href="#step-4-explore-effec
 <div class="section level2">
 <h2 id="step-5-explore-effect-of-max_iter">Step 5: Explore Effect of <code>max_iter</code>
 <a class="anchor" aria-label="anchor" href="#step-5-explore-effect-of-max_iter"></a></h2>
-<table class="table"><colgroup><col width="15%"><col width="84%"></colgroup><thead><tr class="header"><th><strong>Scenario</strong></th>
+<table class="table"><colgroup><col width="15%"><col width="84%"></colgroup><thead><tr><th><strong>Scenario</strong></th>
 <th><strong>Effect</strong></th>
-</tr></thead><tbody><tr class="odd"><td>Too <strong>low</strong>
+</tr></thead><tbody><tr><td>Too <strong>low</strong>
 </td>
 <td>Model may <strong>not converge</strong> → You’ll see warnings like
 “STOP: TOTAL NO. OF F, G EVALUATIONS EXCEEDS LIMIT”. Model coefficients
 may be inaccurate or unstable.</td>
-</tr><tr class="even"><td>Sufficient (or slightly high)</td>
+</tr><tr><td>Sufficient (or slightly high)</td>
 <td>Model <strong>converges properly</strong>. No warnings. Coefficients
 stabilize at optimal values.</td>
-</tr><tr class="odd"><td>Very <strong>high</strong> (but converges early)</td>
+</tr><tr><td>Very <strong>high</strong> (but converges early)</td>
 <td>No harm—most solvers <strong>stop automatically</strong> once
 convergence is reached (before hitting <code>max_iter</code>). However,
 unnecessarily large values can increase training time for very large
@@ -650,7 +650,7 @@ any links that you are not going to use.
   "identifier": "https://carpentries.github.io/workbench-template-md/instructor/03_logistic_regression_optimization.html",
   "dateCreated": "2025-06-01",
   "dateModified": "2025-07-10",
-  "datePublished": "2026-04-28"
+  "datePublished": "2026-05-05"
 }
 
   </script><script>
